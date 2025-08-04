@@ -16,21 +16,17 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
       itemBuilder: (context, i) {
         var boarding = onBoardingList[i];
         return Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // * this title page onboarding
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Text(
-                "${boarding.title}",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
+            Text(
+              "${boarding.title}",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
 
             // * This is image page onboarding
-            Image.asset("${boarding.image}", width: 270, height: 300),
+            Image.asset("${boarding.image}", width: 350, height: 350),
 
             // * This is body page onboarding
             Text(

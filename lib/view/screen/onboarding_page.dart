@@ -21,9 +21,11 @@ class OnboardingPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             // * Here is Page View Builder
-            const Expanded(flex: 3, child: CustomSliderOnBoarding()),
+            const Expanded(flex: 6, child: CustomSliderOnBoarding()),
 
             // * Here is Custom Dot Controller OnBoarding & Login and Skip
             GetBuilder<OnBoardingControllerImp>(
@@ -33,7 +35,7 @@ class OnboardingPage extends StatelessWidget {
                   child: Column(
                     children: [
                       // * height
-                      const SizedBox(height: 30),
+                      // const SizedBox(height: 30),
 
                       // * This is Dot controller
                       CustomDotControllerOnBoarding(
@@ -45,9 +47,7 @@ class OnboardingPage extends StatelessWidget {
 
                       // * Button of next
                       CustomButtonContainer(
-                        title: cont.currentPage == 0
-                            ? "Get Started"
-                            : "Continue",
+                        title: cont.currentPage == 0 ? "3".tr : "2".tr,
                         onTap: () {
                           cont.next();
                         },
@@ -61,7 +61,7 @@ class OnboardingPage extends StatelessWidget {
                         highlightColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         child: Text(
-                          cont.currentPage > 0 ? "Back" : "",
+                          cont.currentPage > 0 ? "10".tr : "",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,

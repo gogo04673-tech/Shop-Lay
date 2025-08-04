@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shoplay/core/constant/colors.dart';
 
 class CustomButtonContainer extends StatelessWidget {
@@ -14,8 +15,8 @@ class CustomButtonContainer extends StatelessWidget {
       splashColor: Colors.transparent,
       hoverColor: Colors.transparent,
       child: Container(
-        height: 40,
-        margin: const EdgeInsets.only(left: 18, right: 18, bottom: 7, top: 10),
+        height: 45,
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 7, top: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: AppColor.primaryColor,
@@ -30,10 +31,13 @@ class CustomButtonContainer extends StatelessWidget {
             ),
           ],
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Text(
-          title,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          title.tr,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+            color: AppColor.white,
+          ),
         ),
       ),
     );
