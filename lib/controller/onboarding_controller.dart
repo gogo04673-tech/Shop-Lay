@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/constant/approutes.dart';
+import 'package:shoplay/core/services/services.dart';
 import 'package:shoplay/data/datasource/static/static.dart';
 
 abstract class OnboardingController extends GetxController {
@@ -16,11 +17,14 @@ class OnBoardingControllerImp extends OnboardingController {
 
   late PageController pageController;
 
+  MyServices myServices = Get.find();
+
   @override
   next() {
     currentPage++;
 
     if (currentPage > onBoardingList.length - 1) {
+      myServices.sharedPreferences.setString("onboarding", '1');
       Get.offAllNamed(AppRoute.signIn);
     }
 

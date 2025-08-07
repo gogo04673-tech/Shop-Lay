@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/controller/auth/verify_code_email_controller.dart';
-import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/constant/colors.dart';
 import 'package:shoplay/view/widget/auth/custombodytext_w.dart';
 import 'package:shoplay/view/widget/auth/customtitleaut_w.dart';

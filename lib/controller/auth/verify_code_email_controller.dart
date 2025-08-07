@@ -8,10 +8,10 @@ abstract class VerifyCodeEmailController extends GetxController {
 }
 
 class VerifyCodeEmailControllerImp extends VerifyCodeEmailController {
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   checkCode() {}
