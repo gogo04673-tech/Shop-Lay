@@ -3,53 +3,41 @@ import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
-import 'package:shoplay/data/datasource/remote/auth/signin_data.dart';
+import 'package:shoplay/data/datasource/remote/auth/check_email_data.dart';
 
-abstract class LoginController extends GetxController {
-  signIn();
-
-  goToForgetPassword();
-
-  goToSignUp();
+abstract class CheckEmailController extends GetxController {
+  goToVerifyCode();
 }
 
-class LoginControllerImp extends LoginController {
+class CheckEmailControllerImp extends CheckEmailController {
   late TextEditingController email;
-  late TextEditingController password;
 
-  GlobalKey<FormState> formStateLogin = GlobalKey<FormState>();
+  GlobalKey<FormState> formStateCheckEmail = GlobalKey<FormState>();
 
-  SignInData signInData = SignInData(Get.find());
+  CheckEmailData checkEmailData = CheckEmailData(Get.find());
 
-  StatusRequest statusRequest = StatusRequest.none;
+  StatusRequest? statusRequest;
 
   @override
   void onInit() {
     email = TextEditingController();
-    password = TextEditingController();
     super.onInit();
   }
 
   @override
   void dispose() {
     email.dispose();
-    password.dispose();
     super.dispose();
   }
 
   @override
-  goToSignUp() {
-    Get.toNamed(AppRoute.signUp);
-  }
-
-  @override
-  signIn() async {
-    var formData = formStateLogin.currentState;
+  goToVerifyCode() async {
+    var formData = formStateCheckEmail.currentState;
     if (formData!.validate()) {
       // * This request of post and check is success or failure
       statusRequest = StatusRequest.loading;
       update();
-      var response = await signInData.postData(email.text, password.text);
+      var response = await checkEmailData.postData(email.text);
 
       statusRequest = handlingData(response);
 
@@ -60,10 +48,5 @@ class LoginControllerImp extends LoginController {
     } else {
       print("not valid");
     }
-  }
-
-  @override
-  goToForgetPassword() {
-    Get.toNamed(AppRoute.forgetPassword);
   }
 }

@@ -3,32 +3,26 @@ import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
-import 'package:shoplay/data/datasource/remote/auth/signup_data.dart';
+import 'package:shoplay/data/datasource/remote/auth/check_email_data.dart';
 
-abstract class SignupController extends GetxController {
-  signUp();
+abstract class ForgetPasswordController extends GetxController {
+  checkEmail();
 
-  goToSignIn();
+  goToVerifyCode();
 }
 
-class SignupControllerImp extends SignupController {
+class ForgetPasswordControllerImp extends ForgetPasswordController {
   late TextEditingController email;
-  late TextEditingController password;
-  late TextEditingController username;
-  late TextEditingController phone;
 
-  GlobalKey<FormState> formStateSignUp = GlobalKey<FormState>();
-
-  SignUpData testRemote = SignUpData(Get.find());
+  GlobalKey<FormState> formStateCheck = GlobalKey<FormState>();
 
   StatusRequest statusRequest = StatusRequest.none;
+
+  CheckEmailData checkEmailData = CheckEmailData(Get.find());
 
   @override
   void onInit() {
     email = TextEditingController();
-    password = TextEditingController();
-    username = TextEditingController();
-    phone = TextEditingController();
 
     super.onInit();
   }
@@ -36,38 +30,28 @@ class SignupControllerImp extends SignupController {
   @override
   void dispose() {
     email.dispose();
-    password.dispose();
-    username.dispose();
-    phone.dispose();
 
     super.dispose();
   }
 
   @override
-  goToSignIn() {
-    Get.toNamed(AppRoute.signIn);
-  }
+  checkEmail() {}
 
   @override
-  signUp() async {
-    var formData = formStateSignUp.currentState;
-    if (formData!.validate()) {
+  goToVerifyCode() async {
+    if (formStateCheck.currentState?.validate() ?? false) {
       // * This request of post and check is success or failure
       statusRequest = StatusRequest.loading;
       update();
-      var response = await SignUpData.postData(
-        username.text,
-        email.text,
-        phone.text,
-        password.text,
-      );
+      var response = await checkEmailData.postData(email.text);
+      print("======================$response");
 
       statusRequest = handlingData(response);
 
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           Get.toNamed(
-            AppRoute.verifyCodeSignUp,
+            AppRoute.verifyCodeCheckEmail,
             arguments: {"email": email.text},
           );
           update();

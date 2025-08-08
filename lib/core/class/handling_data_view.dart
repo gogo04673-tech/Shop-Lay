@@ -15,13 +15,34 @@ class HandlingDataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
-        ? Center(child: Lottie.asset(AppImageAssets.loadingImage, width: 150))
+        ? Center(child: Lottie.asset(AppImageAssets.loadingImage, width: 200))
         : statusRequest == StatusRequest.offlineFailure
-        ? Center(child: Lottie.asset(AppImageAssets.offlineImage, width: 150))
+        ? Center(child: Lottie.asset(AppImageAssets.offlineImage, width: 200))
         : statusRequest == StatusRequest.servicesFailure
-        ? Center(child: Lottie.asset(AppImageAssets.errorImage, width: 150))
+        ? Center(child: Lottie.asset(AppImageAssets.errorImage, width: 200))
         : statusRequest == StatusRequest.failure
-        ? Center(child: Lottie.asset(AppImageAssets.noDataImage, width: 150))
+        ? Center(child: Lottie.asset(AppImageAssets.noDataImage, width: 200))
+        : widget;
+  }
+}
+
+class HandlingDataRequest extends StatelessWidget {
+  final StatusRequest statusRequest;
+  final Widget widget;
+  const HandlingDataRequest({
+    super.key,
+    required this.statusRequest,
+    required this.widget,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return statusRequest == StatusRequest.loading
+        ? Center(child: Lottie.asset(AppImageAssets.loadingImage, width: 200))
+        : statusRequest == StatusRequest.offlineFailure
+        ? Center(child: Lottie.asset(AppImageAssets.offlineImage, width: 200))
+        : statusRequest == StatusRequest.servicesFailure
+        ? Center(child: Lottie.asset(AppImageAssets.errorImage, width: 200))
         : widget;
   }
 }

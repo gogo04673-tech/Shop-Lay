@@ -38,7 +38,7 @@ class _TextFormFiledState extends State<CustomTextFiledForm> {
       controller: widget.controller,
       validator: widget.validator,
       keyboardType: widget.keyboardType,
-      obscureText: obscureText,
+      obscureText: widget.stateIcon ? !obscureText : obscureText,
       maxLines: widget.maxLines, // Add this
       minLines: widget.minLines, // Add this
       style: const TextStyle(
@@ -76,7 +76,7 @@ class _TextFormFiledState extends State<CustomTextFiledForm> {
                 margin: EdgeInsets.only(right: 6),
                 child: IconButton(
                   icon: Icon(
-                    !obscureText ? Icons.visibility : Icons.visibility_off,
+                    !obscureText ? Icons.visibility_off : Icons.visibility,
                     color: const Color(0xFF7393a4),
                   ),
                   onPressed: () {

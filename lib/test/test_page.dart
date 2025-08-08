@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/class/handling_data_view.dart';
-import 'package:shoplay/core/class/status_request.dart';
 import 'package:shoplay/core/constant/colors.dart';
-import 'package:shoplay/core/functions/check_internet.dart';
 import 'package:shoplay/test/test_controller.dart';
 
 class TestPage extends StatefulWidget {
@@ -39,13 +36,8 @@ class _TestPage extends State<TestPage> {
         backgroundColor: AppColor.primaryColor,
       ),
 
-      body: GetBuilder<TestController>(
-        builder: (controller) {
-          return HandlingDataView(
-            statusRequest: controller.statusRequest,
-            widget: Center(child: Text("${controller.data}")),
-          );
-        },
+      body: Center(
+        child: TextButton(onPressed: () {}, child: Text("Dailog")),
       ),
     );
   }

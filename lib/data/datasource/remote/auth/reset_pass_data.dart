@@ -1,23 +1,16 @@
 import 'package:shoplay/core/class/crud.dart';
 import 'package:shoplay/core/constant/links/links_server.dart';
 
-class SignUpData {
+class ResetPassData {
   static late Crud crud;
 
-  SignUpData(Crud c) {
+  ResetPassData(Crud c) {
     crud = c;
   }
 
-  static postData(
-    String username,
-    String email,
-    String phone,
-    String password,
-  ) async {
-    var response = await crud.postRequest(AppLinks.linkSignUp, {
-      "username": username.trim(),
+  postData(String email, String password) async {
+    var response = await crud.postRequest(AppLinks.linkResetPass, {
       "email": email.trim(),
-      "phone": phone.trim(),
       "password": password.trim(),
     });
 
