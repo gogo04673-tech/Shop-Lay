@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
+import 'package:shoplay/core/functions/widget_const/dialog/custom_dialog.dart';
 import 'package:shoplay/data/datasource/remote/auth/verify_code_signup_data.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
@@ -30,9 +31,16 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
     statusRequest = handlingData(response);
 
     if (StatusRequest.success == statusRequest) {
-      Get.toNamed(AppRoute.signIn);
+      customDialog("success", "Sign Up Verify is Successful.");
+
+      Future.delayed(Duration(seconds: 2), () {
+        if (Get.isDialogOpen ?? false) {
+          Get.back();
+          Get.offAllNamed(AppRoute.signIn);
+        }
+      });
     } else {
-      print("not valid");
+      customDialog("error", "Please fill in each field as appropriate.");
     }
     update();
   }

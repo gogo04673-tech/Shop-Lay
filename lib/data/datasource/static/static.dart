@@ -24,22 +24,7 @@ final List<OnBoardingModel> onBoardingList = [
 
 // * This list of logo login with another way
 final List<LoginAnotherModel> listLogoLogin = [
-  LoginAnotherModel(
-    logo: AppImageAssets.googleImage,
-    onPressed: () {
-      print("google");
-    },
-  ),
-  LoginAnotherModel(
-    logo: AppImageAssets.facebookImage,
-    onPressed: () {
-      print("facebook");
-    },
-  ),
-  LoginAnotherModel(
-    logo: AppImageAssets.xImage,
-    onPressed: () {
-      print("x");
-    },
-  ),
+  LoginAnotherModel(logo: AppImageAssets.googleImage, onPressed: () {}),
+  LoginAnotherModel(logo: AppImageAssets.facebookImage, onPressed: () {}),
+  LoginAnotherModel(logo: AppImageAssets.xImage, onPressed: () {}),
 ];

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
+import 'package:shoplay/core/functions/widget_const/dialog/custom_dialog.dart';
 import 'package:shoplay/data/datasource/remote/auth/reset_pass_data.dart';
 
 abstract class ResetPasswordController extends GetxController {
@@ -54,13 +55,20 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
         if (StatusRequest.success == statusRequest) {
           if (response['status'] == "success") {
-            Get.toNamed(AppRoute.signIn);
+            customDialog("success", "Reset Password is Successful.");
+
+            Future.delayed(Duration(seconds: 2), () {
+              if (Get.isDialogOpen ?? false) {
+                Get.back();
+                Get.offAllNamed(AppRoute.signIn);
+              }
+            });
             update();
           }
         }
       }
     } else {
-      print("not valid");
+      customDialog("error", "Please fill in each field as appropriate.");
     }
   }
 

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shoplay/core/class/handling_data_view.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shoplay/core/constant/colors.dart';
+import 'package:shoplay/core/constant/imageassets.dart';
 import 'package:shoplay/test/test_controller.dart';
+import 'package:shoplay/core/functions/widget_const/dialog/custom_dialog.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({super.key});
@@ -36,8 +38,21 @@ class _TestPage extends State<TestPage> {
         backgroundColor: AppColor.primaryColor,
       ),
 
-      body: Center(
-        child: TextButton(onPressed: () {}, child: Text("Dailog")),
+      body: Column(
+        children: [
+          Lottie.asset(AppImageAssets.infoImage),
+          Center(
+            child: TextButton(
+              onPressed: () {
+                customDialog(
+                  "error",
+                  "This error because Server is not working.",
+                );
+              },
+              child: Text("Dialog"),
+            ),
+          ),
+        ],
       ),
     );
   }

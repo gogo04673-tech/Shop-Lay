@@ -16,4 +16,8 @@ class AppImageAssets {
   static const String errorImage = "$rootJson/error.json";
   static const String noDataImage = "$rootJson/no_data.json";
   static const String offlineImage = "$rootJson/offline.json";
+
+  static const String errorDImage = "$rootJson/error_d.json";
+  static const String successImage = "$rootJson/success.json";
+  static const String infoImage = "$rootJson/info.json";
 }

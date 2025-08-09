@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686363705797",
+    "project_id": "shop-lay",
+    "storage_bucket": "shop-lay.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686363705797:android:0b40cdd496efb3f6240bac",
+        "android_client_info": {
+          "package_name": "com.example.shoplay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjP7abqlseImVWv6rr8ASuT4nC65AzY5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

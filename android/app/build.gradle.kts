@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id("dev.flutter.flutter-gradle-plugin")
+    id("com.google.gms.google-services") // Firebase Google Services
+    id("dev.flutter.flutter-gradle-plugin") // بعد Android و Kotlin
 }
 
 android {
@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.shoplay"
-        minSdk = flutter.minSdkVersion
+        minSdk = 23 // ✅ رفع الحد الأدنى ليتوافق مع Firebase Auth
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -31,6 +31,11 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }
@@ -40,6 +45,16 @@ flutter {
 }
 
 dependencies {
-    // أضف هذا السطر لتفعيل desugaring
+    // ✅ دعم Java 8+ على إصدارات قديمة من أندرويد
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+
+    // ✅ Firebase BOM (لتوحيد الإصدارات)
+    implementation(platform("com.google.firebase:firebase-bom:34.1.0"))
+
+    // 📌 مكتبات Firebase الأساسية
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-storage")
 }
