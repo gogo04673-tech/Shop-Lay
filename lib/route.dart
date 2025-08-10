@@ -9,7 +9,7 @@ import 'package:shoplay/view/screen/auth/login_page.dart';
 import 'package:shoplay/view/screen/auth/forget_pass/reset_password_page.dart';
 import 'package:shoplay/view/screen/auth/signup_page.dart';
 import 'package:shoplay/view/screen/auth/verify_code_signin_page.dart';
-import 'package:shoplay/view/screen/pages/home_page.dart';
+import 'package:shoplay/view/screen/home_screen.dart';
 import 'package:shoplay/view/screen/language_page.dart';
 import 'package:shoplay/view/screen/onboarding_page.dart';
 
@@ -44,5 +44,5 @@ List<GetPage<dynamic>>? routes = [
   ),
 
   // * Home Page
-  GetPage(name: AppRoute.homePage, page: () => const HomePage()),
+  GetPage(name: AppRoute.homePage, page: () => const HomeScreen()),
 ];

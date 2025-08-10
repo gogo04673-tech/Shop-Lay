@@ -12,4 +12,6 @@ class AppRoute {
 
   // * Home Page
   static const String homePage = "/homePage";
+
+  // * Home Screen
 }

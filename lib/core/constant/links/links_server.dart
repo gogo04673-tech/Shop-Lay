@@ -1,6 +1,12 @@
 class AppLinks {
   // * link server
   static const String server = "https://shop-lay-php-production.up.railway.app";
+  static const String serverImage =
+      "https://shop-lay-php-production.up.railway.app/upload";
+
+  // * item and categories
+  static const String itemImage =
+      "https://shop-lay-php-production.up.railway.app/upload/items";
 
   // * link test page
   static const String linkTest = "$server/test.php";
@@ -16,4 +22,7 @@ class AppLinks {
 
   static const String linkResetPass =
       "$server/auth/forget_password/reset_password.php";
+
+  // * Home
+  static const String linkHomePage = "$server/home.php";
 }

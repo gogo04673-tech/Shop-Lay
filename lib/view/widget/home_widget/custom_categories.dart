@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shoplay/core/constant/colors.dart';
 
 class CustomCategories extends StatelessWidget {
-  const CustomCategories({super.key, required this.typeProducts});
+  const CustomCategories({super.key, required this.list});
 
-  final List typeProducts;
+  final List list;
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +14,28 @@ class CustomCategories extends StatelessWidget {
       height: 35,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: typeProducts.length,
+        itemCount: list.length,
         itemBuilder: (context, i) {
-          var type = typeProducts[i];
-          return Container(
-            margin: const EdgeInsets.only(right: 10),
-            height: 10,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: AppColor.grey,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              type,
-              style: Theme.of(
-                context,
-              ).textTheme.bodySmall!.copyWith(color: AppColor.textColor),
+          var type = list[i];
+          return InkWell(
+            onTap: () {
+              print("${type['categories_name']}".capitalizeFirst!);
+            },
+            child: Container(
+              margin: const EdgeInsets.only(right: 10),
+              height: 10,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: AppColor.grey,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                "${type['categories_name']}".capitalizeFirst!,
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall!.copyWith(color: AppColor.textColor),
+              ),
             ),
           );
         },
