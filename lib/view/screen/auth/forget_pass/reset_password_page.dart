@@ -35,9 +35,9 @@ class ResetPasswordPage extends StatelessWidget {
                 child: ListView(
                   children: [
                     // * This is Title page => ForgetPassword
-                    Center(child: const CustomTitleAuth(title: "29")),
+                    const Center(child: CustomTitleAuth(title: "29")),
                     // * This is subtitle page => Please sign in to continue
-                    Center(child: const CustomBodyText(text: "30")),
+                    const Center(child: CustomBodyText(text: "30")),
 
                     // * This is just height
                     const SizedBox(height: 20),

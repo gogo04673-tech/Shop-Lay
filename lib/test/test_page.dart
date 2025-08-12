@@ -49,7 +49,7 @@ class _TestPage extends State<TestPage> {
                   "This error because Server is not working.",
                 );
               },
-              child: Text("Dialog"),
+              child: const Text("Dialog"),
             ),
           ),
         ],

@@ -62,7 +62,7 @@ class OnboardingPage extends StatelessWidget {
                         splashColor: Colors.transparent,
                         child: Text(
                           cont.currentPage > 0 ? "10".tr : "",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                           ),

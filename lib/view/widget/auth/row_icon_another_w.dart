@@ -12,7 +12,7 @@ class RowIconAnother extends StatelessWidget {
       children: [
         ...List.generate(listLogoLogin.length, (i) {
           return Container(
-            margin: EdgeInsets.symmetric(horizontal: 5),
+            margin: const EdgeInsets.symmetric(horizontal: 5),
             width: 50,
             height: 50,
             decoration: BoxDecoration(

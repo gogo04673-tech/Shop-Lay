@@ -17,9 +17,9 @@ class HomeScreenControllerImp extends HomeScreenController {
   // * Pages
   List pagesList = [
     const HomePage(),
-    Column(children: [Center(child: Text("Pages"))]),
-    Column(children: [Center(child: Text("Pages"))]),
-    Column(children: [Center(child: Text("Pages"))]),
+    const Column(children: [Center(child: Text("Pages"))]),
+    const Column(children: [Center(child: Text("Pages"))]),
+    const Column(children: [Center(child: Text("Pages"))]),
   ];
   int currentPage = 0;
   @override

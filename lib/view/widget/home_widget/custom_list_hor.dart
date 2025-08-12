@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shoplay/core/constant/links/links_server.dart';
+import 'package:shoplay/core/functions/translate_data_base.dart';
 import 'package:shoplay/data/models/item_m.dart';
 
 class CustomListItemHor extends StatelessWidget {
@@ -29,19 +31,19 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-            "${AppLinks.itemImage}/${itemModel.itemsImage!}",
+          CachedNetworkImage(
+            imageUrl: "${AppLinks.itemImage}/${itemModel.itemsImage!}",
             width: 205,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
-            itemModel.itemsName!,
-            style: TextStyle(fontWeight: FontWeight.w600),
+            translateDataBase(itemModel.itemsNameAr!, itemModel.itemsName!),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           Text(
             "\$${itemModel.itemsPrice!}",

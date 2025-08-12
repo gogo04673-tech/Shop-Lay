@@ -26,13 +26,16 @@ class LoginPage extends StatelessWidget {
             widget: Form(
               key: controller.formStateLogin,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 10,
+                ),
                 child: ListView(
                   children: [
                     // * This is Image
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(right: 28, bottom: 10),
+                      margin: const EdgeInsets.only(right: 28, bottom: 10),
                       child: Image.asset(AppImageAssets.loginImage, width: 300),
                     ),
 
@@ -71,7 +74,7 @@ class LoginPage extends StatelessWidget {
 
                     // * This is Text forget password
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 6),
+                      margin: const EdgeInsets.symmetric(vertical: 6),
                       alignment: Alignment.centerRight,
                       child: InkWell(
                         onTap: () {
@@ -103,7 +106,7 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     // * This is another sign in => google  and facebook...
-                    RowIconAnother(),
+                    const RowIconAnother(),
 
                     // * Height
                     const SizedBox(height: 20),

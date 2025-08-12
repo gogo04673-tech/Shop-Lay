@@ -21,13 +21,16 @@ class VerifyCodeSignUpPage extends StatelessWidget {
             widget: Form(
               child: Center(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 40),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 40,
+                  ),
                   child: ListView(
                     children: [
                       // * This is Title page => VerifyCheckCode
-                      Center(child: const CustomTitleAuth(title: "28")),
+                      const Center(child: CustomTitleAuth(title: "28")),
                       // * This is subtitle page => Please sign in to continue
-                      Center(child: const CustomBodyText(text: "31")),
+                      const Center(child: CustomBodyText(text: "31")),
 
                       // * This is just height
                       const SizedBox(height: 20),

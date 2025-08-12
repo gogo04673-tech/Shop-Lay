@@ -25,4 +25,7 @@ class AppLinks {
 
   // * Home
   static const String linkHomePage = "$server/home.php";
+
+  // * items
+  static const String linkItemsPage = "$server/items/items.php";
 }

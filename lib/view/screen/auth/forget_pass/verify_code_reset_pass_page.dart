@@ -22,17 +22,17 @@ class VerifyCodeResetPagePage extends StatelessWidget {
           return HandlingDataRequest(
             statusRequest: controller.statusRequest,
             widget: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
               child: ListView(
                 children: [
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   // * This is Title page => VerifyCheckCode
-                  Center(child: const CustomTitleAuth(title: "28")),
+                  const Center(child: CustomTitleAuth(title: "28")),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // * This is subtitle page => Please sign in to continue
-                  Center(child: const CustomBodyText(text: "31")),
+                  const Center(child: CustomBodyText(text: "31")),
 
                   // * This is just height
                   const SizedBox(height: 20),

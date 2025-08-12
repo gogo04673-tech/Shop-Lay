@@ -26,13 +26,13 @@ class SignUpPage extends StatelessWidget {
             widget: Form(
               key: controller.formStateSignUp,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: ListView(
                   children: [
                     // * This is Image
                     Container(
                       alignment: Alignment.topCenter,
-                      margin: EdgeInsets.only(left: 60, bottom: 10),
+                      margin: const EdgeInsets.only(left: 60, bottom: 10),
                       child: Image.asset(
                         AppImageAssets.signUpImage,
                         width: 250,
@@ -77,7 +77,7 @@ class SignUpPage extends StatelessWidget {
                     CustomTextFiledForm(
                       hintText: '24',
                       controller: controller.phone,
-                      keyboardType: TextInputType.numberWithOptions(
+                      keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
                       validator: (val) {
@@ -113,7 +113,7 @@ class SignUpPage extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     // * This is another sign in => google  and facebook...
-                    RowIconAnother(),
+                    const RowIconAnother(),
 
                     // * Height
                     const SizedBox(height: 10),

@@ -30,7 +30,7 @@ class OnBoardingControllerImp extends OnboardingController {
 
     pageController.animateToPage(
       currentPage,
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
       curve: Curves.easeInOut,
     );
     update();
@@ -41,7 +41,7 @@ class OnBoardingControllerImp extends OnboardingController {
     currentPage--;
     pageController.animateToPage(
       currentPage,
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
       curve: Curves.easeInOut,
     );
     update();

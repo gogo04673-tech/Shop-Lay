@@ -11,7 +11,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
     return PageView.builder(
       controller: controller.pageController,
       onPageChanged: controller.onPageChange,
-      physics: AlwaysScrollableScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       itemCount: onBoardingList.length,
       itemBuilder: (context, i) {
         var boarding = onBoardingList[i];

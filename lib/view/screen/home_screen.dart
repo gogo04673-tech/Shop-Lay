@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {},
             iconSize: 28,
             color: AppColor.grey,
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: const Icon(Icons.shopping_cart_outlined),
           ),
         ),
 

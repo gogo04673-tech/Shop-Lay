@@ -25,7 +25,7 @@ class CustomButtonContainer extends StatelessWidget {
             BoxShadow(
               // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.1),
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
               blurRadius: 8,
               spreadRadius: 1,
             ),
@@ -33,7 +33,7 @@ class CustomButtonContainer extends StatelessWidget {
         ),
         child: Text(
           title.tr,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 17,
             color: AppColor.white,

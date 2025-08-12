@@ -11,7 +11,7 @@ customDialog(
 }) {
   Get.dialog(
     useSafeArea: true,
-    transitionDuration: Duration(seconds: 1),
+    transitionDuration: const Duration(seconds: 1),
 
     Stack(
       children: [
@@ -54,7 +54,7 @@ customDialog(
                   Text(
                     body.capitalizeFirst!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       decoration: TextDecoration.none,
@@ -62,7 +62,7 @@ customDialog(
                     ),
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   // * Button is here
                   Expanded(

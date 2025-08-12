@@ -13,7 +13,7 @@ class CustomSearch extends StatelessWidget {
         hintStyle: Theme.of(
           context,
         ).textTheme.bodySmall!.copyWith(fontSize: 14, color: AppColor.greyDeep),
-        prefixIcon: Icon(Icons.search),
+        prefixIcon: const Icon(Icons.search),
         filled: true,
         fillColor: AppColor.grey,
         border: OutlineInputBorder(

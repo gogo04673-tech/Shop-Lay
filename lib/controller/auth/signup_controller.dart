@@ -69,7 +69,7 @@ class SignupControllerImp extends SignupController {
         if (response['status'] == "success") {
           customDialog("success", "Sign Up is Successful.");
 
-          Future.delayed(Duration(seconds: 2), () {
+          Future.delayed(const Duration(seconds: 2), () {
             if (Get.isDialogOpen ?? false) {
               Get.back();
               Get.toNamed(

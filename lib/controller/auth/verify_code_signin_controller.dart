@@ -33,7 +33,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
     if (StatusRequest.success == statusRequest) {
       customDialog("success", "Sign Up Verify is Successful.");
 
-      Future.delayed(Duration(seconds: 2), () {
+      Future.delayed(const Duration(seconds: 2), () {
         if (Get.isDialogOpen ?? false) {
           Get.back();
           Get.offAllNamed(AppRoute.signIn);

@@ -13,7 +13,7 @@ class CustomLangList extends GetView<LocalController> {
       itemCount: Language.languageList.length,
       itemBuilder: (context, i) {
         return Container(
-          margin: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+          margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
           decoration: BoxDecoration(
             border: BoxBorder.all(width: .2, color: AppColor.grey),
             borderRadius: BorderRadius.circular(15),
@@ -21,7 +21,7 @@ class CustomLangList extends GetView<LocalController> {
           child: ListTile(
             title: Text(
               Language.languageList[i],
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColor.textColor,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,

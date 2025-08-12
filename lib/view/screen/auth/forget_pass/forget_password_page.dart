@@ -32,9 +32,9 @@ class ForgetPasswordPage extends StatelessWidget {
                 child: ListView(
                   children: [
                     // * This is Title page => ForgetPassword
-                    Center(child: const CustomTitleAuth(title: "25")),
+                    const Center(child: CustomTitleAuth(title: "25")),
                     // * This is subtitle page => Please sign in to continue
-                    Center(child: const CustomBodyText(text: "26")),
+                    const Center(child: CustomBodyText(text: "26")),
 
                     // * This is just height
                     const SizedBox(height: 20),

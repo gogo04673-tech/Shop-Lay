@@ -25,15 +25,15 @@ class Crud {
         if (data['status'] == 'success') {
           return Right(data);
         } else {
-          return Left(StatusRequest.failure);
+          return const Left(StatusRequest.failure);
         }
       } else {
-        return Left(StatusRequest.servicesFailure);
+        return const Left(StatusRequest.servicesFailure);
       }
     } catch (_) {
       return await checkInternet() == true
-          ? Left(StatusRequest.servicesFailure)
-          : Left(StatusRequest.offlineFailure);
+          ? const Left(StatusRequest.servicesFailure)
+          : const Left(StatusRequest.offlineFailure);
     }
   }
 }

@@ -3,7 +3,7 @@ import 'package:shoplay/core/constant/colors.dart';
 
 ThemeData themeEnglish = ThemeData(
   fontFamily: "Inter_28pt-Bold",
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     color: AppColor.backgroundColor,
     centerTitle: true,
     titleTextStyle: TextStyle(
@@ -13,13 +13,13 @@ ThemeData themeEnglish = ThemeData(
     ),
   ),
   scaffoldBackgroundColor: AppColor.backgroundColor,
-  textTheme: TextTheme(
-    headlineLarge: const TextStyle(
+  textTheme: const TextTheme(
+    headlineLarge: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: AppColor.textColor,
     ),
-    bodySmall: const TextStyle(
+    bodySmall: TextStyle(
       fontSize: 13,
       height: 1.6,
       color: AppColor.grey,
@@ -31,7 +31,7 @@ ThemeData themeEnglish = ThemeData(
 // * Arabic Theme
 ThemeData themeArabic = ThemeData(
   fontFamily: "Cairo-Bold",
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     color: AppColor.backgroundColor,
     centerTitle: true,
     titleTextStyle: TextStyle(
@@ -40,16 +40,16 @@ ThemeData themeArabic = ThemeData(
     ),
   ),
   scaffoldBackgroundColor: AppColor.backgroundColor,
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     // headline Large
-    headlineLarge: const TextStyle(
+    headlineLarge: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: AppColor.textColor,
     ),
 
     // * body Small
-    bodySmall: const TextStyle(
+    bodySmall: TextStyle(
       fontSize: 13,
       height: 1.6,
       color: AppColor.grey,
