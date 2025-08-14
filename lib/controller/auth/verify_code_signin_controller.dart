@@ -7,6 +7,7 @@ import 'package:shoplay/data/datasource/remote/auth/verify_code_signup_data.dart
 
 abstract class VerifyCodeSignUpController extends GetxController {
   goToSignIn(String verifyCodeSignUp);
+  reSendCode();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
@@ -41,6 +42,27 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
       });
     } else {
       customDialog("error", "Please fill in each field as appropriate.");
+    }
+    update();
+  }
+
+  @override
+  reSendCode() async {
+    var response = await verifyCodeSignupData.reSendCodeData(email);
+
+    statusRequest = handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      customDialog("success", "Resend Code is Successful.");
+
+      Future.delayed(const Duration(seconds: 2), () {
+        if (Get.isDialogOpen ?? false) {
+          Get.back();
+          Get.offAllNamed(AppRoute.signIn);
+        }
+      });
+    } else {
+      customDialog("error", "Resend Code is Failure.");
     }
     update();
   }

@@ -22,7 +22,7 @@ ThemeData themeEnglish = ThemeData(
     bodySmall: TextStyle(
       fontSize: 13,
       height: 1.6,
-      color: AppColor.grey,
+      color: AppColor.greyDeep,
       fontWeight: FontWeight.w500,
     ),
   ),
@@ -52,7 +52,7 @@ ThemeData themeArabic = ThemeData(
     bodySmall: TextStyle(
       fontSize: 13,
       height: 1.6,
-      color: AppColor.grey,
+      color: AppColor.greyDeep,
       fontWeight: FontWeight.w500,
     ),
   ),

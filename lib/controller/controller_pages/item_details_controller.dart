@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
-import 'package:shoplay/data/models/item_m.dart';
 
 abstract class ItemDetailsController extends GetxController {
   init();
 }
 
 class ItemDetailsControllerImp extends ItemDetailsController {
-  late ItemModel itemModel;
+  // ignore: prefer_typing_uninitialized_variables
+  late var itemModel;
 
   List colorsItem = [
     {"name": "black", "id": "1", "active": "0"},

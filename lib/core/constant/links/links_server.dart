@@ -14,6 +14,7 @@ class AppLinks {
   // Auth
   static const String linkSignUp = "$server/auth/signup.php";
   static const String linkSignIn = "$server/auth/signin.php";
+  static const String linkResend = "$server/auth/resend.php";
   static const String linkCheckEmail =
       "$server/auth/forget_password/check_email.php";
   static const String linkVerifyCodeSignUp = "$server/auth/verify_code.php";
@@ -28,4 +29,10 @@ class AppLinks {
 
   // * items
   static const String linkItemsPage = "$server/items/items.php";
+
+  // * Favorite
+  static const String linkFavoriteAdd = "$server/favorite/add.php";
+  static const String linkFavoriteRemove = "$server/favorite/remove.php";
+  static const String linkFavoriteView = "$server/favorite/view.php";
+  static const String linkFavoriteDelete = "$server/favorite/delete.php";
 }

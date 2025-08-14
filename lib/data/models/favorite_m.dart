@@ -1,4 +1,4 @@
-class ItemModel {
+class FavoriteModel {
   int? itemsId;
   String? itemsName;
   String? itemsNameAr;
@@ -11,14 +11,19 @@ class ItemModel {
   int? itemsDiscount;
   String? itemsDate;
   int? itemsCategories;
-  int? categoriesId;
-  String? categoriesName;
-  String? categoriesNameAr;
-  String? categoriesImage;
-  String? categoriesDateTime;
-  String? favorite;
+  int? favoriteId;
+  int? favoriteItemId;
+  int? favoriteUserId;
+  int? usersId;
+  String? usersName;
+  String? usersEmail;
+  String? usersPhone;
+  int? usersVerifycode;
+  int? usersApprove;
+  String? usersCreate;
+  String? usersPassword;
 
-  ItemModel({
+  FavoriteModel({
     this.itemsId,
     this.itemsName,
     this.itemsNameAr,
@@ -31,15 +36,20 @@ class ItemModel {
     this.itemsDiscount,
     this.itemsDate,
     this.itemsCategories,
-    this.categoriesId,
-    this.categoriesName,
-    this.categoriesNameAr,
-    this.categoriesImage,
-    this.categoriesDateTime,
-    this.favorite,
+    this.favoriteId,
+    this.favoriteItemId,
+    this.favoriteUserId,
+    this.usersId,
+    this.usersName,
+    this.usersEmail,
+    this.usersPhone,
+    this.usersVerifycode,
+    this.usersApprove,
+    this.usersCreate,
+    this.usersPassword,
   });
 
-  ItemModel.fromJson(Map<String, dynamic> json) {
+  FavoriteModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
@@ -52,12 +62,17 @@ class ItemModel {
     itemsDiscount = json['items_discount'];
     itemsDate = json['items_date'];
     itemsCategories = json['items_categories'];
-    categoriesId = json['categories_id'];
-    categoriesName = json['categories_name'];
-    categoriesNameAr = json['categories_name_ar'];
-    categoriesImage = json['categories_image'];
-    categoriesDateTime = json['categories_date_time'];
-    favorite = json['favorite'].toString();
+    favoriteId = json['favorite_id'];
+    favoriteItemId = json['favorite_item_id'];
+    favoriteUserId = json['favorite_user_id'];
+    usersId = json['users_id'];
+    usersName = json['users_name'];
+    usersEmail = json['users_email'];
+    usersPhone = json['users_phone'];
+    usersVerifycode = json['users_verifycode'];
+    usersApprove = json['users_approve'];
+    usersCreate = json['users_create'];
+    usersPassword = json['users_password'];
   }
 
   Map<String, dynamic> toJson() {
@@ -74,12 +89,17 @@ class ItemModel {
     data['items_discount'] = itemsDiscount;
     data['items_date'] = itemsDate;
     data['items_categories'] = itemsCategories;
-    data['categories_id'] = categoriesId;
-    data['categories_name'] = categoriesName;
-    data['categories_name_ar'] = categoriesNameAr;
-    data['categories_image'] = categoriesImage;
-    data['categories_date_time'] = categoriesDateTime;
-    data['favorite'] = favorite;
+    data['favorite_id'] = favoriteId;
+    data['favorite_item_id'] = favoriteItemId;
+    data['favorite_user_id'] = favoriteUserId;
+    data['users_id'] = usersId;
+    data['users_name'] = usersName;
+    data['users_email'] = usersEmail;
+    data['users_phone'] = usersPhone;
+    data['users_verifycode'] = usersVerifycode;
+    data['users_approve'] = usersApprove;
+    data['users_create'] = usersCreate;
+    data['users_password'] = usersPassword;
     return data;
   }
 }

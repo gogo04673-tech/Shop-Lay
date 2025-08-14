@@ -12,8 +12,11 @@ import 'package:shoplay/view/screen/auth/verify_code_signin_page.dart';
 import 'package:shoplay/view/screen/home_screen.dart';
 import 'package:shoplay/view/screen/language_page.dart';
 import 'package:shoplay/view/screen/onboarding_page.dart';
+import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
+import 'package:shoplay/view/screen/pages/settings/notification_page.dart';
+import 'package:shoplay/view/screen/pages/settings/settings_page.dart';
 
 List<GetPage<dynamic>>? routes = [
   // * Language
@@ -53,4 +56,16 @@ List<GetPage<dynamic>>? routes = [
 
   // * item Details Page
   GetPage(name: AppRoute.itemDetailsPage, page: () => const ItemDetailsPage()),
+
+  // * Favorite Page
+  GetPage(name: AppRoute.favoritePage, page: () => const FavoritePage()),
+
+  // * notificationPage
+  GetPage(
+    name: AppRoute.notificationPage,
+    page: () => const NotificationPage(),
+  ),
+
+  // * settings Page
+  GetPage(name: AppRoute.settingsPage, page: () => const SettingsPage()),
 ];

@@ -21,7 +21,7 @@ class Crud {
       // * Check response is connect is true
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        // print("========$data========");
+        print("========$data========");
         if (data['status'] == 'success') {
           return Right(data);
         } else {

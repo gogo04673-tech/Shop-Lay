@@ -6,9 +6,10 @@ class ItemsPageData {
 
   ItemsPageData(this.crud);
 
-  getData(String categoryId) async {
+  getData(String categoryId, String userId) async {
     var response = await crud.postRequest(AppLinks.linkItemsPage, {
       "categoryId": categoryId,
+      "userId": userId,
     });
 
     return response.fold((l) => l, (r) => r);

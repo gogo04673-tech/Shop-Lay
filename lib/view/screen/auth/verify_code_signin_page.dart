@@ -52,6 +52,17 @@ class VerifyCodeSignUpPage extends StatelessWidget {
                           controller.goToSignIn(verificationCode);
                         }, // end onSubmit
                       ),
+
+                      TextButton(
+                        onPressed: () {
+                          controller.reSendCode();
+                        },
+
+                        child: const Text(
+                          "Resend Code",
+                          style: TextStyle(color: AppColor.black),
+                        ),
+                      ),
                     ],
                   ),
                 ),

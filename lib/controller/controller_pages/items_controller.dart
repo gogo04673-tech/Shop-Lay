@@ -8,6 +8,7 @@ import 'package:shoplay/data/models/item_m.dart';
 
 abstract class ItemsController extends GetxController {
   changeCategory(int value, String catId);
+
   getItemsData(String categoryId);
   goToItemDetails(ItemModel itemModel);
 }
@@ -46,19 +47,21 @@ class ItemsControllerImp extends ItemsController {
     items.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await itemsPageData.getData(categoryId);
+    var response = await itemsPageData.getData(
+      categoryId,
+      myServices.sharedPreferences.getString("id")!,
+    );
     statusRequest = handlingData(response);
 
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        items.addAll(response['items']);
-        if (items.isEmpty) {
-          statusRequest = StatusRequest.failure;
-          update();
-        }
-        update();
+        items.addAll(response['data']);
+      } else {
+        statusRequest = StatusRequest.failure;
       }
+      update();
     }
+    update();
   }
 
   @override

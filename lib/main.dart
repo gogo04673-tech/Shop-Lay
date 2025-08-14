@@ -10,7 +10,6 @@ import 'package:shoplay/route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
   await initializationService();
   runApp(const MyApp());

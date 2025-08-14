@@ -18,4 +18,13 @@ class AppRoute {
 
   // item Details Page
   static const String itemDetailsPage = "/temDetailsPage";
+
+  // * Favorite Page
+  static const String favoritePage = "/favoritePage";
+
+  // * Notification Page
+  static const String notificationPage = "/notificationPage";
+
+  // * Settings
+  static const String settingsPage = "/settingsPage";
 }

@@ -59,33 +59,40 @@ class LoginControllerImp extends LoginController {
 
       if (StatusRequest.success == statusRequest) {
         Map data = response['data'];
-        myServices.sharedPreferences.setString(
-          "id",
-          data['users_id'].toString(),
-        );
-        myServices.sharedPreferences.setString(
-          "username",
-          data['users_name'].toString(),
-        );
-        myServices.sharedPreferences.setString(
-          "email",
-          data['users_email'].toString(),
-        );
-        myServices.sharedPreferences.setString(
-          "phone",
-          data['users_phone'].toString(),
-        );
-        myServices.sharedPreferences.setString("step", "2");
+        if (data['users_approve'] == 1) {
+          customDialog("success", "Sign In is Successful.");
 
-        customDialog("success", "Sign In is Successful.");
+          myServices.sharedPreferences.setString(
+            "id",
+            data['users_id'].toString(),
+          );
+          myServices.sharedPreferences.setString(
+            "username",
+            data['users_name'].toString(),
+          );
+          myServices.sharedPreferences.setString(
+            "email",
+            data['users_email'].toString(),
+          );
+          myServices.sharedPreferences.setString(
+            "phone",
+            data['users_phone'].toString(),
+          );
+          myServices.sharedPreferences.setString("step", "2");
 
-        Future.delayed(const Duration(seconds: 2), () {
-          if (Get.isDialogOpen ?? false) {
-            Get.back();
-            Get.offAllNamed(AppRoute.homePage);
-          }
-        });
-        update();
+          Future.delayed(const Duration(seconds: 2), () {
+            if (Get.isDialogOpen ?? false) {
+              Get.back();
+              Get.offAllNamed(AppRoute.homePage);
+            }
+          });
+          update();
+        } else {
+          Get.toNamed(
+            AppRoute.verifyCodeSignUp,
+            arguments: {'email': email.text},
+          );
+        }
       } else if (StatusRequest.failure == statusRequest) {
         customDialog(
           "Error",

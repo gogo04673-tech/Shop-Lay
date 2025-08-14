@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/home_page.dart';
+import 'package:shoplay/view/screen/pages/settings/profile_page.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int i);
@@ -18,8 +20,8 @@ class HomeScreenControllerImp extends HomeScreenController {
   List pagesList = [
     const HomePage(),
     const Column(children: [Center(child: Text("Pages"))]),
-    const Column(children: [Center(child: Text("Pages"))]),
-    const Column(children: [Center(child: Text("Pages"))]),
+    const FavoritePage(),
+    const ProfilePage(),
   ];
   int currentPage = 0;
   @override

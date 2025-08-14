@@ -16,4 +16,12 @@ class VerifyCodeSignupData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  reSendCodeData(String email) async {
+    var response = await crud.postRequest(AppLinks.linkResend, {
+      "email": email.trim(),
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

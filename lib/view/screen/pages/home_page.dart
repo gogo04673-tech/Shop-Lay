@@ -3,7 +3,6 @@ import 'package:shoplay/controller/controller_pages/home_controller.dart';
 import 'package:shoplay/core/class/handling_data_view.dart';
 import 'package:shoplay/view/widget/tool/custom_appbar.dart';
 import 'package:shoplay/view/widget/home_widget/custom_categories.dart';
-import 'package:shoplay/view/widget/tool/custom_grid_item.dart';
 import 'package:shoplay/view/widget/home_widget/custom_list_hor.dart';
 import 'package:shoplay/view/widget/tool/custom_text.dart';
 import 'package:get/get.dart';
@@ -46,7 +45,10 @@ class HomePage extends StatelessWidget {
                     const CustomText(text: "All Products"),
 
                     // * This Grad view about All Products
-                    CustomGridItem(list: controller.items),
+                    // CustomGridItem(
+                    //   list: controller.items,
+                    //   activeFavorite: false,
+                    // ),
                   ],
                 ),
               ),

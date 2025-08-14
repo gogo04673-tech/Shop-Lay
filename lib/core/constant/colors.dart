@@ -11,4 +11,5 @@ class AppColor {
   static const Color backgroundColor = Color(0xffF7F8FA);
   static const Color textColor = Color(0xff1C1C1C);
   static const Color errorColor = Color(0xffFF6B6B);
+  static const Color lightRedColor = Color.fromARGB(255, 248, 204, 204);
 }
