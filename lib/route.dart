@@ -12,6 +12,7 @@ import 'package:shoplay/view/screen/auth/verify_code_signin_page.dart';
 import 'package:shoplay/view/screen/home_screen.dart';
 import 'package:shoplay/view/screen/language_page.dart';
 import 'package:shoplay/view/screen/onboarding_page.dart';
+import 'package:shoplay/view/screen/pages/cart_page.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
@@ -19,13 +20,13 @@ import 'package:shoplay/view/screen/pages/settings/notification_page.dart';
 import 'package:shoplay/view/screen/pages/settings/settings_page.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // * Language
+  // // * Language
   GetPage(
     name: "/",
     page: () => const LanguagePage(),
     middlewares: [MyMiddleWare()],
   ),
-  // GetPage(name: "/", page: () => const TestPage()),
+  // GetPage(name: "/", page: () => const CartPage()),
 
   // * On boarding
   GetPage(name: AppRoute.onBoarding, page: () => const OnboardingPage()),
@@ -68,4 +69,7 @@ List<GetPage<dynamic>>? routes = [
 
   // * settings Page
   GetPage(name: AppRoute.settingsPage, page: () => const SettingsPage()),
+
+  // * Cart Page
+  GetPage(name: AppRoute.cartPage, page: () => const CartPage()),
 ];

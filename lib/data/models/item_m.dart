@@ -7,7 +7,7 @@ class ItemModel {
   String? itemsImage;
   int? itemsCount;
   int? itemsActive;
-  int? itemsPrice;
+  double? itemsPrice;
   int? itemsDiscount;
   String? itemsDate;
   int? itemsCategories;

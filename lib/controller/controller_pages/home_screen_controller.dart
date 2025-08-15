@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/home_page.dart';
 import 'package:shoplay/view/screen/pages/settings/profile_page.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int i);
+  goToCart();
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
@@ -28,5 +30,10 @@ class HomeScreenControllerImp extends HomeScreenController {
   changePage(int i) {
     currentPage = i;
     update();
+  }
+
+  @override
+  goToCart() {
+    Get.toNamed(AppRoute.cartPage);
   }
 }

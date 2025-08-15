@@ -30,7 +30,9 @@ class ProfileControllerImp extends ProfileController {
       {
         "name": "Wishlist",
         "leading": Icons.favorite_border_outlined,
-        "function": () {},
+        "function": () {
+          Get.toNamed(AppRoute.favoritePage);
+        },
       },
       {
         "name": "Settings",

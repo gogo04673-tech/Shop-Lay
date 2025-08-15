@@ -17,7 +17,7 @@ class ItemDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ItemDetailsControllerImp());
+    ItemDetailsControllerImp contr = Get.put(ItemDetailsControllerImp());
     return Scaffold(
       appBar: const CustomAppbar(title: "Item Details"),
       body: GetBuilder<ItemDetailsControllerImp>(
@@ -78,7 +78,12 @@ class ItemDetailsPage extends StatelessWidget {
       ),
 
       // * Add to Card
-      floatingActionButton: const CustomButtonContainer(title: "Add Card"),
+      floatingActionButton: CustomButtonContainer(
+        title: "Add Card",
+        onTap: () {
+          contr.cartPageControllerImp.addItemToCart(contr.itemModel.itemsId);
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/controller/controller_pages/home_screen_controller.dart';
+import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/constant/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,7 +23,10 @@ class HomeScreen extends StatelessWidget {
             color: AppColor.primaryColor,
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // controller.goToCart();
+              Get.toNamed(AppRoute.cartPage);
+            },
             iconSize: 28,
             color: AppColor.grey,
             icon: const Icon(Icons.shopping_cart_outlined),

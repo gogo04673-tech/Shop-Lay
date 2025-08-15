@@ -4,6 +4,7 @@ import 'package:shoplay/core/class/handling_data_view.dart';
 import 'package:shoplay/view/widget/tool/custom_appbar.dart';
 import 'package:shoplay/view/widget/home_widget/custom_categories.dart';
 import 'package:shoplay/view/widget/home_widget/custom_list_hor.dart';
+import 'package:shoplay/view/widget/tool/custom_search.dart';
 import 'package:shoplay/view/widget/tool/custom_text.dart';
 import 'package:get/get.dart';
 
@@ -16,8 +17,80 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       // This is AppBar Home Page
-      appBar: const CustomAppbar(iconAction: Icons.notifications_none_outlined),
+      appBar: CustomAppbar(
+        title: "Sop-Lay",
+        iconAction: Icons.notifications_none_outlined,
+        onPressedAction: () {
+          Get.bottomSheet(
+            Container(
+              color: Colors.white,
+              height: 200,
+              width: 400,
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 4,
+                    width: 40,
+                    margin: const EdgeInsets.only(bottom: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
 
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Spacer(),
+                      const Text(
+                        "Error",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      const SizedBox(width: 125),
+                      IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: const Icon(Icons.clear),
+                      ),
+                    ],
+                  ),
+
+                  ListTile(
+                    title: const Text("Oops! Something went wrong."),
+                    leading: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Icon(
+                        Icons.highlight_remove_sharp,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.only(left: 10),
+                    child: const Text(
+                      "We encountered an issue while processing\nyour request. Please try again.",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ), //const CustomAppbar(iconAction: Icons.notifications_none_outlined),
       // This is body Home Page
       body: GetBuilder<HomePageControllerImp>(
         builder: (controller) {
@@ -32,6 +105,8 @@ class HomePage extends StatelessWidget {
                 ),
                 child: ListView(
                   children: [
+                    const SizedBox(height: 20),
+                    const CustomSearch(),
                     // * This Row of type products ( All Clothing .......)
                     CustomCategories(list: controller.categories),
 
