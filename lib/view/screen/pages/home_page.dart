@@ -1,6 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shoplay/controller/controller_pages/home_controller.dart';
 import 'package:shoplay/core/class/handling_data_view.dart';
+import 'package:shoplay/core/constant/links/links_server.dart';
+import 'package:shoplay/core/functions/translate_data_base.dart';
+import 'package:shoplay/data/models/item_m.dart';
+import 'package:shoplay/view/widget/home_widget/custom_list_search.dart';
 import 'package:shoplay/view/widget/tool/custom_appbar.dart';
 import 'package:shoplay/view/widget/home_widget/custom_categories.dart';
 import 'package:shoplay/view/widget/home_widget/custom_list_hor.dart';
@@ -106,24 +111,42 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   children: [
                     const SizedBox(height: 20),
-                    const CustomSearch(),
+
+                    CustomSearch(
+                      onPressedSearch: () {
+                        controller.onPressedSearch();
+                      },
+                      controller: controller.search,
+                      onChanged: controller.onChange,
+                    ),
+
                     // * This Row of type products ( All Clothing .......)
-                    CustomCategories(list: controller.categories),
+                    !controller.isSearch
+                        ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomCategories(list: controller.categories),
 
-                    // * This is a Text title Feature Products
-                    const CustomText(text: "Featured Products"),
+                              // * This is a Text title Feature Products
+                              const CustomText(text: "Featured Products"),
 
-                    // * list this feature products
-                    CustomListItemHor(list: controller.itemsView),
+                              // * list this feature products
+                              CustomListItemHor(list: controller.itemsView),
 
-                    // * This is a Text title All Products
-                    const CustomText(text: "All Products"),
+                              // * This is a Text title All Products
+                              const CustomText(text: "All Products"),
 
-                    // * This Grad view about All Products
-                    // CustomGridItem(
-                    //   list: controller.items,
-                    //   activeFavorite: false,
-                    // ),
+                              // * This Grad view about All Products
+                              // CustomGridItem(
+                              //   list: controller.items,
+                              //   activeFavorite: false,
+                              // ),
+                            ],
+                          )
+                        : HandlingDataView(
+                            statusRequest: controller.statusRequest,
+                            widget: ListItemSearch(list: controller.listSearch),
+                          ),
                   ],
                 ),
               ),

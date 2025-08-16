@@ -46,11 +46,32 @@ class ItemDetailsPage extends StatelessWidget {
               // * This is Price
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
-                child: Text(
-                  "\$${controller.itemModel.itemsPrice}",
-                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: AppColor.primaryColor,
-                    fontWeight: FontWeight.w400,
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text:
+                            "\$${controller.itemModel.itemsPriceDiscount!.toStringAsFixed(2)}  ",
+                        style: const TextStyle(
+                          color: AppColor.primaryColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+
+                      if (controller.itemModel.itemsDiscount != 0)
+                        TextSpan(
+                          text: controller.itemModel.itemsPrice!
+                              .toStringAsFixed(2),
+                          style: const TextStyle(
+                            color: AppColor.greyDeep,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            decoration: TextDecoration.lineThrough,
+                            decorationColor: AppColor.greyDeep,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               ),

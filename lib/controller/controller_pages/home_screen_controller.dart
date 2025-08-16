@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/home_page.dart';
-import 'package:shoplay/view/screen/pages/settings/profile_page.dart';
+import 'package:shoplay/view/screen/settings/profile_page.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int i);

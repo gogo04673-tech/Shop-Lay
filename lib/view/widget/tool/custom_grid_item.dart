@@ -109,12 +109,31 @@ class AllItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "\$${itemModel.itemsPrice}",
-                      style: const TextStyle(
-                        color: AppColor.primaryColor,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text:
+                                "\$${itemModel.itemsPriceDiscount!.toStringAsFixed(2)}  ",
+                            style: const TextStyle(
+                              color: AppColor.primaryColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          if (itemModel.itemsDiscount != 0)
+                            TextSpan(
+                              text: itemModel.itemsPrice!.toStringAsFixed(1),
+                              style: const TextStyle(
+                                color: AppColor.greyDeep,
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: AppColor.greyDeep,
+                              ),
+                            ),
+                        ],
                       ),
                     ),
 

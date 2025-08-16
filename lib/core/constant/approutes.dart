@@ -28,6 +28,10 @@ class AppRoute {
   // * Settings
   static const String settingsPage = "/settingsPage";
 
-  // * Settings
+  // * Cart
   static const String cartPage = "/cartPage";
+
+  // * Address
+  static const String viewAddressPage = "/viewAddressPage";
+  static const String addAddressPage = "/addAddressPage";
 }

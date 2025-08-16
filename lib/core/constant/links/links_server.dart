@@ -29,6 +29,7 @@ class AppLinks {
 
   // * items
   static const String linkItemsPage = "$server/items/items.php";
+  static const String linkSearchPage = "$server/items/search.php";
 
   // * Favorite
   static const String linkFavoriteAdd = "$server/favorite/add.php";

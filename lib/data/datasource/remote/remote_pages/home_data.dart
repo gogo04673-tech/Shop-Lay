@@ -6,6 +6,14 @@ class HomePageData {
 
   HomePageData(this.crud);
 
+  getSearchData(String itemSearch) async {
+    var response = await crud.postRequest(AppLinks.linkSearchPage, {
+      "search": itemSearch,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
+
   getData() async {
     var response = await crud.postRequest(AppLinks.linkHomePage, {});
 

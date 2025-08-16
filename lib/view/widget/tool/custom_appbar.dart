@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:shoplay/view/widget/tool/custom_search.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({
     super.key,
-    this.title,
+    required this.title,
     this.iconLeading,
     this.iconAction,
     this.onPressedLeading,
     this.onPressedAction,
   });
 
-  final String? title;
+  final String title;
   final IconData? iconLeading;
   final IconData? iconAction;
   final void Function()? onPressedLeading;
@@ -20,7 +19,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: title != null ? Text(title!) : const CustomSearch(),
+      title: Text(title),
       // * This is leading Button
       leading: iconLeading == null
           ? null

@@ -3,6 +3,8 @@ import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/middleware/my_middle_ware.dart';
 // ignore: unused_import
 import 'package:shoplay/test/test_page.dart';
+import 'package:shoplay/view/screen/address/add_address.dart';
+import 'package:shoplay/view/screen/address/view_address.dart';
 import 'package:shoplay/view/screen/auth/forget_pass/forget_password_page.dart';
 import 'package:shoplay/view/screen/auth/forget_pass/verify_code_reset_pass_page.dart';
 import 'package:shoplay/view/screen/auth/login_page.dart';
@@ -16,8 +18,8 @@ import 'package:shoplay/view/screen/pages/cart_page.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
-import 'package:shoplay/view/screen/pages/settings/notification_page.dart';
-import 'package:shoplay/view/screen/pages/settings/settings_page.dart';
+import 'package:shoplay/view/screen/settings/notification_page.dart';
+import 'package:shoplay/view/screen/settings/settings_page.dart';
 
 List<GetPage<dynamic>>? routes = [
   // // * Language
@@ -72,4 +74,8 @@ List<GetPage<dynamic>>? routes = [
 
   // * Cart Page
   GetPage(name: AppRoute.cartPage, page: () => const CartPage()),
+
+  // * Address Pages
+  GetPage(name: AppRoute.addAddressPage, page: () => const AddAddressPage()),
+  GetPage(name: AppRoute.viewAddressPage, page: () => const ViewAddressPage()),
 ];
