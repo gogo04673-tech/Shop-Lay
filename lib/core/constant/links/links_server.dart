@@ -42,4 +42,13 @@ class AppLinks {
   static const String linkCartDelete = "$server/cart/delete.php";
   static const String linkCartAdd = "$server/cart/add.php";
   static const String linkCartCountItem = "$server/cart/get_count.php";
+
+  // *Coupon
+  static const String linkCoupon = "$server/coupon/check_coupon.php";
+
+  // * Address
+  static const String linkAddAddress = "$server/address/add.php";
+  static const String linkDeleteAddress = "$server/address/delete.php";
+  static const String linkViewAddress = "$server/address/view.php";
+  static const String linkEditAddress = "$server/address/edit.php";
 }

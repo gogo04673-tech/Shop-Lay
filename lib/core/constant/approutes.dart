@@ -34,4 +34,5 @@ class AppRoute {
   // * Address
   static const String viewAddressPage = "/viewAddressPage";
   static const String addAddressPage = "/addAddressPage";
+  static const String addressDetailsPage = "/addressDetailsPage";
 }

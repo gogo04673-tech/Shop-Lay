@@ -35,12 +35,20 @@ class ProfileControllerImp extends ProfileController {
         },
       },
       {
+        "name": "Address",
+        "leading": Icons.location_on_outlined,
+        "function": () {
+          Get.toNamed(AppRoute.viewAddressPage);
+        },
+      },
+      {
         "name": "Settings",
         "leading": Icons.settings,
         "function": () {
           Get.toNamed(AppRoute.settingsPage);
         },
       },
+
       {
         "name": "Log Out",
         "leading": Icons.logout_outlined,

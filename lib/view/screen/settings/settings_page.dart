@@ -27,14 +27,6 @@ class SettingsPage extends StatelessWidget {
                 // * This is Row Edit Profile
                 CustomRowPage(title: "Edit Profile", onTapRowPage: () {}),
 
-                // * This is Row Address
-                CustomRowPage(
-                  title: "Address",
-                  onTapRowPage: () {
-                    controller.goToAddress();
-                  },
-                ),
-
                 // * This is Row change password
                 CustomRowPage(title: "Change Password", onTapRowPage: () {}),
 

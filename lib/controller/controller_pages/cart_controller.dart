@@ -1,9 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
 import 'package:shoplay/core/services/services.dart';
 import 'package:shoplay/data/datasource/remote/remote_pages/cart_data.dart';
+import 'package:shoplay/data/datasource/remote/remote_pages/coupon_data.dart';
 import 'package:shoplay/data/models/cart_m.dart';
+import 'package:shoplay/data/models/coupon_m.dart';
 
 abstract class CartPageController extends GetxController {
   addItemToCart(int itemId);
@@ -17,10 +20,17 @@ abstract class CartPageController extends GetxController {
   //countItemFromCart(int itemId);
 
   viewCartData();
+
+  countTotalPrice();
+
+  checkCouponRequest();
 }
 
 class CartPageControllerImp extends CartPageController {
+  TextEditingController? coupon;
+
   CartData cartData = CartData(Get.find());
+  CouponData couponData = CouponData(Get.find());
 
   MyServices myServices = Get.find();
 
@@ -30,13 +40,18 @@ class CartPageControllerImp extends CartPageController {
 
   double totalPriceItems = 0;
 
+  String? nameCoupon;
+  int discountCoupon = 0;
+
   List<CartModel> cartItemsData = [];
+
+  CouponModel? couponModel;
 
   StatusRequest statusRequest = StatusRequest.none;
 
   @override
   void onInit() {
-    //countItemFromCart(1);
+    coupon = TextEditingController();
     viewCartData();
     super.onInit();
   }
@@ -68,23 +83,6 @@ class CartPageControllerImp extends CartPageController {
 
     update();
   }
-
-  // @override
-  // countItemFromCart(itemId) async {
-  //   var response = await cartData.cartGetCountItemData(
-  //     itemId.toString(),
-  //     myServices.sharedPreferences.getString("id")!,
-  //   );
-
-  //   if (response['status'] == "success") {
-  //     countItem = response['data'];
-  //   } else {
-  //     statusRequest = StatusRequest.offlineFailure;
-  //     update();
-  //   }
-
-  //   update();
-  // }
 
   @override
   viewCartData() async {
@@ -122,5 +120,29 @@ class CartPageControllerImp extends CartPageController {
   @override
   remove(itemId) {
     deleteItemFromCart(itemId);
+  }
+
+  @override
+  checkCouponRequest() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await couponData.getCouponData(coupon!.text);
+    statusRequest = handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        var data = response['data'];
+        couponModel = CouponModel.fromJson(data);
+        nameCoupon = couponModel!.couponName;
+        discountCoupon = couponModel!.couponDiscount!;
+      }
+    }
+    statusRequest = StatusRequest.none;
+    update();
+  }
+
+  @override
+  double countTotalPrice() {
+    return totalPriceItems - (totalPriceItems * discountCoupon / 100);
   }
 }

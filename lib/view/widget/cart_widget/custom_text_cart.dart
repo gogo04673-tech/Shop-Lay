@@ -17,7 +17,7 @@ class CustomTextCart extends StatelessWidget {
           ).textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.w300),
         ),
         Text(
-          "\$$price",
+          price,
           style: Theme.of(
             context,
           ).textTheme.headlineLarge!.copyWith(fontWeight: FontWeight.w300),

@@ -55,17 +55,20 @@ class _TextFormFiledState extends State<CustomTextFiledForm> {
         fillColor: AppColor.secondaryColor,
 
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(15),
 
           borderSide: const BorderSide(color: AppColor.grey, width: 0.3),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
-          borderSide: const BorderSide(color: AppColor.backgroundColor, width: 0.3),
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: AppColor.backgroundColor,
+            width: 0.3,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
-          borderSide:const  BorderSide(color: AppColor.grey, width: 0.3),
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: AppColor.grey, width: 0.3),
         ),
         prefixIcon: widget.prefixIcon != null
             ? Icon(widget.prefixIcon, color: AppColor.primaryColor)
@@ -73,7 +76,7 @@ class _TextFormFiledState extends State<CustomTextFiledForm> {
 
         suffixIcon: widget.stateIcon
             ? Container(
-                margin:const  EdgeInsets.only(right: 6),
+                margin: const EdgeInsets.only(right: 6),
                 child: IconButton(
                   icon: Icon(
                     !obscureText ? Icons.visibility_off : Icons.visibility,

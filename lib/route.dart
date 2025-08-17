@@ -4,6 +4,7 @@ import 'package:shoplay/core/middleware/my_middle_ware.dart';
 // ignore: unused_import
 import 'package:shoplay/test/test_page.dart';
 import 'package:shoplay/view/screen/address/add_address.dart';
+import 'package:shoplay/view/screen/address/details_address.dart';
 import 'package:shoplay/view/screen/address/view_address.dart';
 import 'package:shoplay/view/screen/auth/forget_pass/forget_password_page.dart';
 import 'package:shoplay/view/screen/auth/forget_pass/verify_code_reset_pass_page.dart';
@@ -78,4 +79,8 @@ List<GetPage<dynamic>>? routes = [
   // * Address Pages
   GetPage(name: AppRoute.addAddressPage, page: () => const AddAddressPage()),
   GetPage(name: AppRoute.viewAddressPage, page: () => const ViewAddressPage()),
+  GetPage(
+    name: AppRoute.addressDetailsPage,
+    page: () => const DetailsAddressPage(),
+  ),
 ];
