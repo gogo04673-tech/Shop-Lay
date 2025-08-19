@@ -42,7 +42,11 @@ class ListItemSearch extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   translateDataBase(list[i].itemsNameAr!, list[i].itemsName!),
-                  style: const TextStyle(fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+
+                    height: 1,
+                  ),
                 ),
                 Text(
                   "\$${list[i].itemsPrice!}",

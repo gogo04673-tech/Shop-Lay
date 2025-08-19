@@ -16,6 +16,7 @@ import 'package:shoplay/view/screen/home_screen.dart';
 import 'package:shoplay/view/screen/language_page.dart';
 import 'package:shoplay/view/screen/onboarding_page.dart';
 import 'package:shoplay/view/screen/pages/cart_page.dart';
+import 'package:shoplay/view/screen/pages/checkout_page.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
@@ -75,6 +76,9 @@ List<GetPage<dynamic>>? routes = [
 
   // * Cart Page
   GetPage(name: AppRoute.cartPage, page: () => const CartPage()),
+
+  // * Checkout page
+  GetPage(name: AppRoute.checkoutPage, page: () => const CheckoutPage()),
 
   // * Address Pages
   GetPage(name: AppRoute.addAddressPage, page: () => const AddAddressPage()),

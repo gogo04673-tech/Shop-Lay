@@ -20,4 +20,8 @@ class AppImageAssets {
   static const String errorDImage = "$rootJson/error_d.json";
   static const String successImage = "$rootJson/success.json";
   static const String infoImage = "$rootJson/info.json";
+
+  // * Image payment method
+  static const String visaImage = "$rootImage/visa.png";
+  static const String dollarImage = "$rootImage/dollar.png";
 }

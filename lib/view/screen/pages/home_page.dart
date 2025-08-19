@@ -1,10 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shoplay/controller/controller_pages/home_controller.dart';
 import 'package:shoplay/core/class/handling_data_view.dart';
-import 'package:shoplay/core/constant/links/links_server.dart';
-import 'package:shoplay/core/functions/translate_data_base.dart';
-import 'package:shoplay/data/models/item_m.dart';
 import 'package:shoplay/view/widget/home_widget/custom_list_search.dart';
 import 'package:shoplay/view/widget/tool/custom_appbar.dart';
 import 'package:shoplay/view/widget/home_widget/custom_categories.dart';

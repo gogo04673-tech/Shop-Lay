@@ -43,6 +43,9 @@ class AppLinks {
   static const String linkCartAdd = "$server/cart/add.php";
   static const String linkCartCountItem = "$server/cart/get_count.php";
 
+  // * Check out
+  static const String linkCheckout = "$server/orders/checkout.php";
+
   // *Coupon
   static const String linkCoupon = "$server/coupon/check_coupon.php";
 

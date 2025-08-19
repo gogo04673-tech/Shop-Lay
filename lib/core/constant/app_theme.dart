@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shoplay/core/constant/colors.dart';
 
 ThemeData themeEnglish = ThemeData(
-  fontFamily: "Inter_28pt-Bold",
+  fontFamily: "Inter",
   appBarTheme: const AppBarTheme(
     color: AppColor.backgroundColor,
     centerTitle: true,
@@ -30,7 +30,7 @@ ThemeData themeEnglish = ThemeData(
 
 // * Arabic Theme
 ThemeData themeArabic = ThemeData(
-  fontFamily: "Cairo-Bold",
+  fontFamily: "Cairo",
   appBarTheme: const AppBarTheme(
     color: AppColor.backgroundColor,
     centerTitle: true,

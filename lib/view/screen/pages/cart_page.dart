@@ -60,7 +60,12 @@ class CartPage extends StatelessWidget {
                       "\$${(controller.countTotalPrice() + 5).toStringAsFixed(2)}",
                 ),
 
-                const CustomButtonContainer(title: "Checkout"),
+                CustomButtonContainer(
+                  title: "Checkout",
+                  onTap: () {
+                    controller.goToCheckout();
+                  },
+                ),
               ],
             ),
           );

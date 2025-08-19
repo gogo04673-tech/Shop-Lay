@@ -87,7 +87,8 @@ class AllItem extends StatelessWidget {
                   style: const TextStyle(
                     color: AppColor.textColor,
                     fontSize: 15,
-                    fontWeight: FontWeight.bold,
+                    height: 0.8,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
 

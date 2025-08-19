@@ -31,6 +31,9 @@ class AppRoute {
   // * Cart
   static const String cartPage = "/cartPage";
 
+  // * CheckOut page
+  static const String checkoutPage = "/checkoutPage";
+
   // * Address
   static const String viewAddressPage = "/viewAddressPage";
   static const String addAddressPage = "/addAddressPage";

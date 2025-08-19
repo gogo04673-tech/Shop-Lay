@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
+import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
 import 'package:shoplay/core/services/services.dart';
 import 'package:shoplay/data/datasource/remote/remote_pages/cart_data.dart';
@@ -24,6 +25,8 @@ abstract class CartPageController extends GetxController {
   countTotalPrice();
 
   checkCouponRequest();
+
+  goToCheckout();
 }
 
 class CartPageControllerImp extends CartPageController {
@@ -41,6 +44,7 @@ class CartPageControllerImp extends CartPageController {
   double totalPriceItems = 0;
 
   String? nameCoupon;
+  String? couponId;
   int discountCoupon = 0;
 
   List<CartModel> cartItemsData = [];
@@ -134,6 +138,7 @@ class CartPageControllerImp extends CartPageController {
         var data = response['data'];
         couponModel = CouponModel.fromJson(data);
         nameCoupon = couponModel!.couponName;
+        couponId = couponModel!.couponId!.toString();
         discountCoupon = couponModel!.couponDiscount!;
       }
     }
@@ -144,5 +149,17 @@ class CartPageControllerImp extends CartPageController {
   @override
   double countTotalPrice() {
     return totalPriceItems - (totalPriceItems * discountCoupon / 100);
+  }
+
+  @override
+  goToCheckout() {
+    Get.toNamed(
+      AppRoute.checkoutPage,
+      arguments: {
+        "couponId": couponId ?? "0",
+        "totalPriceOrder": totalPriceItems,
+        "orderSummary": cartItemsData,
+      },
+    );
   }
 }

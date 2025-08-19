@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:shoplay/controller/controller_pages/cart_controller.dart';
 import 'package:shoplay/core/constant/colors.dart';
-import 'package:shoplay/core/constant/imageassets.dart';
+
 import 'package:shoplay/core/constant/links/links_server.dart';
 import 'package:shoplay/data/models/cart_m.dart';
 import 'package:shoplay/view/widget/cart_widget/custom_icon_count.dart';
