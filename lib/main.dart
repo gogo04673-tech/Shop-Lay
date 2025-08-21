@@ -6,6 +6,7 @@ import 'package:shoplay/binding/init_binding.dart';
 import 'package:shoplay/core/localization/changelocal.dart';
 import 'package:shoplay/core/localization/translations.dart';
 import 'package:shoplay/core/services/services.dart';
+
 import 'package:shoplay/route.dart';
 
 void main() async {

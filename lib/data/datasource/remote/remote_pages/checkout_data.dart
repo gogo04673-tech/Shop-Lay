@@ -14,6 +14,7 @@ class CheckoutData {
     String ordersPriceDelivery,
     String ordersPrice,
     String ordersCoupon,
+    String ordersCouponDiscount,
   ) async {
     var response = await crud.postRequest(AppLinks.linkCheckout, {
       "userId": userId,
@@ -23,6 +24,7 @@ class CheckoutData {
       "ordersPriceDelivery": ordersPriceDelivery,
       "ordersPrice": ordersPrice,
       "ordersCoupon": ordersCoupon,
+      "ordersCouponDiscount": ordersCouponDiscount,
     });
 
     return response.fold((l) => l, (r) => r);

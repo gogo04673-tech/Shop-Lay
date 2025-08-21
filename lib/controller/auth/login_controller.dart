@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
@@ -79,6 +80,11 @@ class LoginControllerImp extends LoginController {
             data['users_phone'].toString(),
           );
           myServices.sharedPreferences.setString("step", "2");
+
+          FirebaseMessaging.instance.subscribeToTopic("users");
+          FirebaseMessaging.instance.subscribeToTopic(
+            "users${myServices.sharedPreferences.getString("id")}",
+          );
 
           Future.delayed(const Duration(seconds: 2), () {
             if (Get.isDialogOpen ?? false) {

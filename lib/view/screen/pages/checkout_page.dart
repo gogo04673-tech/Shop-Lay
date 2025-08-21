@@ -117,16 +117,20 @@ class CheckoutPage extends StatelessWidget {
                   children: [
                     DetailsPayment(
                       title: "SubTotal",
-                      price: "\$${70.toStringAsFixed(2)}",
+                      price: "\$${controller.subTotal.toStringAsFixed(2)}",
                     ),
                     DetailsPayment(
                       title: "Shipping",
-                      price: "\$${10.toStringAsFixed(2)}",
+                      price: "\$${3.toStringAsFixed(2)}",
                     ),
-                    const DetailsPayment(title: "Discount", price: "${10}%"),
+                    DetailsPayment(
+                      title: "Discount",
+                      price: "${controller.couponDiscount}%",
+                    ),
                     DetailsPayment(
                       title: "Total",
-                      price: "\$${70.toStringAsFixed(2)}",
+                      price:
+                          "\$${controller.totalPriceOrder.toStringAsFixed(2)}",
                     ),
                   ],
                 ),

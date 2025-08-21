@@ -10,7 +10,9 @@ abstract class SettingsPageController extends GetxController {
 
 class SettingsPageControllerImp extends SettingsPageController {
   MyServices myServices = Get.find();
+
   bool changeMode = false;
+
   @override
   switchMode(value) {
     changeMode = value;

@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
+import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
+import 'package:shoplay/core/functions/widget_const/custom_bottom_sheet.dart';
 import 'package:shoplay/core/services/services.dart';
 import 'package:shoplay/data/datasource/remote/address/address_data.dart';
 import 'package:shoplay/data/datasource/remote/remote_pages/checkout_data.dart';
@@ -28,11 +31,13 @@ class CheckoutPageControllerImp extends CheckoutPageController {
   List<AddressModel> listAddresses = [];
 
   String? receive;
-  int? addressId;
+  int addressId = 0;
   String? payment;
 
   late String couponId;
+  late String couponDiscount;
   late double totalPriceOrder;
+  late double subTotal;
   late List<CartModel> orderSummary;
 
   @override
@@ -90,12 +95,43 @@ class CheckoutPageControllerImp extends CheckoutPageController {
   inits() {
     getAddresses();
     couponId = Get.arguments['couponId'];
+    couponDiscount = Get.arguments['couponDiscount'];
     totalPriceOrder = Get.arguments['totalPriceOrder'];
     orderSummary = Get.arguments['orderSummary'];
+    subTotal = Get.arguments['subTotal'];
   }
 
   @override
   checkoutRequest() async {
+    if (receive == null) {
+      return customBottomSheetStatus(
+        Icons.highlight_off_rounded,
+        "Error",
+        "Oops! Something went wrong.",
+        "Please, add receive order.",
+      );
+    }
+
+    if (receive == "delivery") {
+      if (addressId == 0) {
+        return customBottomSheetStatus(
+          Icons.highlight_off_rounded,
+          "Error",
+          "Oops! Something went wrong.",
+          "Please, add address a go order.",
+        );
+      }
+    }
+
+    if (payment == null) {
+      return customBottomSheetStatus(
+        Icons.highlight_off_rounded,
+        "Error",
+        "Oops! Something went wrong.",
+        "Please, add payment order.",
+      );
+    }
+
     statusRequest = StatusRequest.loading;
     update();
     var response = await checkoutData.checkoutData(
@@ -106,16 +142,23 @@ class CheckoutPageControllerImp extends CheckoutPageController {
       "3",
       totalPriceOrder.toString(),
       couponId,
+      couponDiscount,
     );
 
     statusRequest = handlingData(response);
 
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        // List data = response['data'];
-        // listAddresses.addAll(data.map((e) => AddressModel.fromJson(e)));
-        // if (listAddresses.isEmpty) statusRequest = StatusRequest.failure;
-        print("====> ....checkout");
+        Get.toNamed(AppRoute.homePage);
+        addressId = 0;
+        receive = null;
+        payment = null;
+        customBottomSheetStatus(
+          Icons.done_outline_rounded,
+          "Successfully",
+          "Success! Your order is successfully.",
+          "Enjoy with this items, and shopping anytime you want again.",
+        );
       } else {
         statusRequest = StatusRequest.failure;
       }

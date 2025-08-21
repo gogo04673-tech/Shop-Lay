@@ -21,6 +21,7 @@ import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
 import 'package:shoplay/view/screen/settings/notification_page.dart';
+import 'package:shoplay/view/screen/settings/orders_pending.dart';
 import 'package:shoplay/view/screen/settings/settings_page.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -86,5 +87,11 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoute.addressDetailsPage,
     page: () => const DetailsAddressPage(),
+  ),
+
+  // * Orders page
+  GetPage(
+    name: AppRoute.ordersPendingPage,
+    page: () => const OrdersPendingPage(),
   ),
 ];

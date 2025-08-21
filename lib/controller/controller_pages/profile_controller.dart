@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/core/constant/approutes.dart';
@@ -26,7 +27,13 @@ class ProfileControllerImp extends ProfileController {
     username = myServices.sharedPreferences.getString("username");
     email = myServices.sharedPreferences.getString("email");
     itemsProfile = [
-      {"name": "Orders", "leading": Icons.add_box, "function": () {}},
+      {
+        "name": "Orders",
+        "leading": Icons.add_box,
+        "function": () {
+          Get.toNamed(AppRoute.ordersPendingPage);
+        },
+      },
       {
         "name": "Wishlist",
         "leading": Icons.favorite_border_outlined,
@@ -53,6 +60,10 @@ class ProfileControllerImp extends ProfileController {
         "name": "Log Out",
         "leading": Icons.logout_outlined,
         "function": () {
+          FirebaseMessaging.instance.unsubscribeFromTopic("users");
+          FirebaseMessaging.instance.unsubscribeFromTopic(
+            "users${myServices.sharedPreferences.getString("id")}",
+          );
           myServices.sharedPreferences.clear();
           Get.offAllNamed(AppRoute.signIn);
         },
