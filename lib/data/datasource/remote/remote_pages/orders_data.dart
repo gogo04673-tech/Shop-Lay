@@ -13,4 +13,36 @@ class OrdersData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  getAllPendingOrdersData(String userId) async {
+    var response = await crud.postRequest(AppLinks.linkAllPendingOrders, {
+      "userId": userId,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
+
+  getDetailsOrdersData(String cartOrder) async {
+    var response = await crud.postRequest(AppLinks.linkDetailsOrders, {
+      "cartOrders": cartOrder,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
+
+  getCompletedOrdersData(String userId) async {
+    var response = await crud.postRequest(AppLinks.linkAllCompletedOrders, {
+      "userId": userId,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
+
+  ordersDeleteData(String orderId) async {
+    var response = await crud.postRequest(AppLinks.linkDeleteOrders, {
+      "orderId": orderId,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

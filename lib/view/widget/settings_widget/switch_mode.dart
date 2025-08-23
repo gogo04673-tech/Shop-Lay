@@ -22,7 +22,7 @@ class SwitchMode extends StatelessWidget {
               controller.switchMode(value);
             },
 
-            activeColor: AppColor.white,
+            activeThumbColor: AppColor.white,
             activeTrackColor: AppColor.grey,
             inactiveThumbColor: AppColor.white,
             inactiveTrackColor: AppColor.grey,

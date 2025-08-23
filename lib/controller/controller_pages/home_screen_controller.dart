@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/home_page.dart';
+import 'package:shoplay/view/screen/pages/offers_page.dart';
 import 'package:shoplay/view/screen/settings/profile_page.dart';
 
 abstract class HomeScreenController extends GetxController {
@@ -13,7 +14,7 @@ abstract class HomeScreenController extends GetxController {
 class HomeScreenControllerImp extends HomeScreenController {
   List<IconData> iconList = [
     Icons.home_filled,
-    Icons.list,
+    Icons.local_offer_outlined,
     Icons.favorite_outline_outlined,
     Icons.person_outline_sharp,
   ];
@@ -21,7 +22,7 @@ class HomeScreenControllerImp extends HomeScreenController {
   // * Pages
   List pagesList = [
     const HomePage(),
-    const Column(children: [Center(child: Text("Pages"))]),
+    const OffersPage(),
     const FavoritePage(),
     const ProfilePage(),
   ];

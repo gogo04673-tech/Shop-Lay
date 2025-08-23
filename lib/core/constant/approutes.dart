@@ -22,8 +22,11 @@ class AppRoute {
   // * Favorite Page
   static const String favoritePage = "/favoritePage";
 
+  // * Notification Page Setting
+  static const String notificationSettingPage = "/notificationSettingPage";
+
   // * Notification Page
-  static const String notificationPage = "/notificationPage";
+  static const String notificationsPage = "/notificationsPage";
 
   // * Settings
   static const String settingsPage = "/settingsPage";
@@ -41,4 +44,5 @@ class AppRoute {
 
   // * Orders
   static const String ordersPendingPage = "/ordersPendingPage";
+  static const String ordersDetailsPage = "/ordersDetailsPage";
 }

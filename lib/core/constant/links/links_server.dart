@@ -30,6 +30,7 @@ class AppLinks {
   // * items
   static const String linkItemsPage = "$server/items/items.php";
   static const String linkSearchPage = "$server/items/search.php";
+  static const String linkOffersPage = "$server/items/offers.php";
 
   // * Favorite
   static const String linkFavoriteAdd = "$server/favorite/add.php";
@@ -46,9 +47,16 @@ class AppLinks {
   // * Orders
   static const String linkCheckout = "$server/orders/checkout.php";
   static const String linkAllOrders = "$server/orders/orders.php";
+  static const String linkAllCompletedOrders = "$server/orders/completed.php";
+  static const String linkAllPendingOrders = "$server/orders/pending.php";
+  static const String linkDetailsOrders = "$server/orders/order_details.php";
+  static const String linkDeleteOrders = "$server/orders/order_delete.php";
 
   // *Coupon
   static const String linkCoupon = "$server/coupon/check_coupon.php";
+
+  // * Notifications
+  static const String linkNotify = "$server/notifications.php";
 
   // * Address
   static const String linkAddAddress = "$server/address/add.php";

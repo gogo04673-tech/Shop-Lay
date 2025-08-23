@@ -21,6 +21,6 @@ class SettingsPageControllerImp extends SettingsPageController {
 
   @override
   goToNotifyPage() {
-    Get.toNamed(AppRoute.notificationPage);
+    Get.toNamed(AppRoute.notificationsPage);
   }
 }

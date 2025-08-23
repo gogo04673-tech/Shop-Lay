@@ -19,6 +19,8 @@ abstract class HomePageController extends GetxController {
 
   onPressedSearch();
 
+  goToNotification();
+
   goToItems(List categories, int selectCategory, String categoryId);
 }
 
@@ -118,6 +120,11 @@ class HomePageControllerImp extends HomePageController {
       }
     }
     update();
+  }
+
+  @override
+  goToNotification() {
+    Get.toNamed(AppRoute.notificationsPage);
   }
 }
 

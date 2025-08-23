@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:shoplay/core/constant/app_theme.dart';
 import 'package:shoplay/core/constant/language.dart';
+import 'package:shoplay/core/functions/fcmconfig.dart';
 import 'package:shoplay/core/services/services.dart';
 
 class LocalController extends GetxController {
@@ -65,6 +66,8 @@ class LocalController extends GetxController {
 
   @override
   void onInit() {
+    requestPermissionNotification();
+    fcmconfig();
     requestPermissionLocation();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     List<String> langList = Language.languageList;

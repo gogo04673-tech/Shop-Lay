@@ -44,7 +44,7 @@ class SwitchNotification extends StatelessWidget {
           Switch(
             value: valueSwitch,
             onChanged: onChanged,
-            activeColor: AppColor.white,
+            activeThumbColor: const Color.fromRGBO(255, 255, 255, 1),
             activeTrackColor: AppColor.grey,
             inactiveThumbColor: AppColor.white,
             inactiveTrackColor: AppColor.grey,

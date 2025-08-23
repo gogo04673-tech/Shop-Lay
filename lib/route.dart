@@ -20,7 +20,8 @@ import 'package:shoplay/view/screen/pages/checkout_page.dart';
 import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
-import 'package:shoplay/view/screen/settings/notification_page.dart';
+import 'package:shoplay/view/screen/pages/notifications_page.dart';
+import 'package:shoplay/view/screen/settings/order_details_page.dart';
 import 'package:shoplay/view/screen/settings/orders_pending.dart';
 import 'package:shoplay/view/screen/settings/settings_page.dart';
 
@@ -68,8 +69,8 @@ List<GetPage<dynamic>>? routes = [
 
   // * notificationPage
   GetPage(
-    name: AppRoute.notificationPage,
-    page: () => const NotificationPage(),
+    name: AppRoute.notificationsPage,
+    page: () => const NotificationsPage(),
   ),
 
   // * settings Page
@@ -93,5 +94,10 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoute.ordersPendingPage,
     page: () => const OrdersPendingPage(),
+  ),
+
+  GetPage(
+    name: AppRoute.ordersDetailsPage,
+    page: () => const OrderDetailsPage(),
   ),
 ];

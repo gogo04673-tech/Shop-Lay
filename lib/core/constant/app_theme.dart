@@ -4,7 +4,7 @@ import 'package:shoplay/core/constant/colors.dart';
 ThemeData themeEnglish = ThemeData(
   fontFamily: "Inter",
   appBarTheme: const AppBarTheme(
-    color: AppColor.backgroundColor,
+    backgroundColor: AppColor.backgroundColor,
     centerTitle: true,
     titleTextStyle: TextStyle(
       color: AppColor.black,
@@ -32,7 +32,7 @@ ThemeData themeEnglish = ThemeData(
 ThemeData themeArabic = ThemeData(
   fontFamily: "Cairo",
   appBarTheme: const AppBarTheme(
-    color: AppColor.backgroundColor,
+    backgroundColor: AppColor.backgroundColor,
     centerTitle: true,
     titleTextStyle: TextStyle(
       color: AppColor.black,

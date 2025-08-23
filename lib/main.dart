@@ -2,11 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/binding/init_binding.dart';
-
 import 'package:shoplay/core/localization/changelocal.dart';
 import 'package:shoplay/core/localization/translations.dart';
 import 'package:shoplay/core/services/services.dart';
-
 import 'package:shoplay/route.dart';
 
 void main() async {

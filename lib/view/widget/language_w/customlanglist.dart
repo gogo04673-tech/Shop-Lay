@@ -31,7 +31,10 @@ class CustomLangList extends GetView<LocalController> {
             trailing: Radio(
               activeColor: AppColor.primaryColor,
               value: Language.languageList[i],
+
+              // ignore: deprecated_member_use
               groupValue: "${controller.language}",
+              // ignore: deprecated_member_use
               onChanged: (value) {
                 controller.changeLang(value);
               },

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shoplay/core/class/status_request.dart';
+import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/functions/handling_data.dart';
 import 'package:shoplay/core/services/services.dart';
 import 'package:shoplay/data/datasource/remote/remote_pages/orders_data.dart';
@@ -10,6 +11,15 @@ abstract class OrdersPendingController extends GetxController {
   getAllOrdersRequest();
   printOrderType(int value);
   printOrderStatus(int value);
+  refreshPage();
+  goToDetailsOrder(int cartOrder);
+  orderDeleteRequest(int orderId);
+
+  // completed
+  getAllCompletedOrdersRequest();
+
+  // pending
+  getAllPendingOrdersRequest();
 }
 
 class OrdersPendingControllerImp extends OrdersPendingController {
@@ -22,6 +32,8 @@ class OrdersPendingControllerImp extends OrdersPendingController {
   ];
 
   List<OrderModel> orders = [];
+  List<OrderModel> ordersCompleted = [];
+  List<OrderModel> ordersPending = [];
 
   OrdersData ordersData = OrdersData(Get.find());
 
@@ -32,6 +44,8 @@ class OrdersPendingControllerImp extends OrdersPendingController {
   @override
   void onInit() {
     getAllOrdersRequest();
+    getAllCompletedOrdersRequest();
+    getAllPendingOrdersRequest();
     super.onInit();
   }
 
@@ -82,5 +96,89 @@ class OrdersPendingControllerImp extends OrdersPendingController {
       return "Your Order is on way.";
     }
     return "You Have a order.";
+  }
+
+  @override
+  refreshPage() {
+    orders.clear();
+    getAllOrdersRequest();
+  }
+
+  @override
+  goToDetailsOrder(int cartOrder) {
+    Get.toNamed(
+      AppRoute.ordersDetailsPage,
+      arguments: {"cartOrder": cartOrder},
+    );
+  }
+
+  @override
+  orderDeleteRequest(int orderId) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ordersData.ordersDeleteData(orderId.toString());
+    statusRequest = handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        Get.snackbar("Shop-Lay", "${response['message']}");
+
+        refreshPage();
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    } else {
+      statusRequest = StatusRequest.failure;
+    }
+
+    update();
+  }
+
+  @override
+  getAllCompletedOrdersRequest() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ordersData.getCompletedOrdersData(
+      myServices.sharedPreferences.getString("id")!,
+    );
+    statusRequest = handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        var data = response['data'] as List;
+        ordersCompleted.addAll(
+          data.map((e) => OrderModel.fromJson(e)).toList(),
+        );
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    } else {
+      statusRequest = StatusRequest.failure;
+    }
+
+    update();
+  }
+
+  @override
+  getAllPendingOrdersRequest() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ordersData.getAllPendingOrdersData(
+      myServices.sharedPreferences.getString("id")!,
+    );
+    statusRequest = handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        var data = response['data'] as List;
+        ordersPending.addAll(data.map((e) => OrderModel.fromJson(e)).toList());
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    } else {
+      statusRequest = StatusRequest.failure;
+    }
+
+    update();
   }
 }
