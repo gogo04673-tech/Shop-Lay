@@ -31,6 +31,9 @@ class AppRoute {
   // * Settings
   static const String settingsPage = "/settingsPage";
 
+  // * Contact Us
+  static const String contactUsPage = "/contactUsPage";
+
   // * Cart
   static const String cartPage = "/cartPage";
 

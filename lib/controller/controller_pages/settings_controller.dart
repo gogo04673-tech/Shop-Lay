@@ -6,6 +6,7 @@ abstract class SettingsPageController extends GetxController {
   switchMode(bool value);
 
   goToNotifyPage();
+  goToContactUsPage();
 }
 
 class SettingsPageControllerImp extends SettingsPageController {
@@ -22,5 +23,10 @@ class SettingsPageControllerImp extends SettingsPageController {
   @override
   goToNotifyPage() {
     Get.toNamed(AppRoute.notificationsPage);
+  }
+
+  @override
+  goToContactUsPage() {
+    Get.toNamed(AppRoute.contactUsPage);
   }
 }

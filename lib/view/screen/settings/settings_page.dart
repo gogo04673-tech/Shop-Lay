@@ -54,7 +54,12 @@ class SettingsPage extends StatelessWidget {
                 CustomRowPage(title: "FAQ", onTapRowPage: () {}),
 
                 // * This is Row contact Us
-                CustomRowPage(title: "Contact Us", onTapRowPage: () {}),
+                CustomRowPage(
+                  title: "Contact Us",
+                  onTapRowPage: () {
+                    controller.goToContactUsPage();
+                  },
+                ),
 
                 // * This is Title Legal
                 const CustomTextS(title: "legal"),

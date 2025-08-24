@@ -20,6 +20,9 @@ abstract class OrdersPendingController extends GetxController {
 
   // pending
   getAllPendingOrdersRequest();
+
+  // Rating order
+  ratingOrderRequest(String orderId, String rating, String ratingCommit);
 }
 
 class OrdersPendingControllerImp extends OrdersPendingController {
@@ -57,6 +60,7 @@ class OrdersPendingControllerImp extends OrdersPendingController {
 
   @override
   getAllOrdersRequest() async {
+    orders.clear();
     statusRequest = StatusRequest.loading;
     update();
     var response = await ordersData.getAllOrdersData(
@@ -136,6 +140,7 @@ class OrdersPendingControllerImp extends OrdersPendingController {
 
   @override
   getAllCompletedOrdersRequest() async {
+    ordersCompleted.clear();
     statusRequest = StatusRequest.loading;
     update();
     var response = await ordersData.getCompletedOrdersData(
@@ -180,5 +185,10 @@ class OrdersPendingControllerImp extends OrdersPendingController {
     }
 
     update();
+  }
+
+  @override
+  ratingOrderRequest(String orderId, String rating, String ratingCommit) async {
+    await ordersData.ordersRatingData(orderId, rating, ratingCommit);
   }
 }

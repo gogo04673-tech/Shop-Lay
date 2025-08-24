@@ -57,10 +57,12 @@ class HomePage extends StatelessWidget {
                               CustomCategories(list: controller.categories),
 
                               // * This is a Text title Feature Products
-                              const CustomText(text: "Featured Products"),
+                              const CustomText(text: "Top Seller"),
 
                               // * list this feature products
-                              CustomListItemHor(list: controller.itemsView),
+                              CustomListItemHor(
+                                list: controller.itemsTopSeller,
+                              ),
 
                               // * This is a Text title All Products
                               const CustomText(text: "All Products"),

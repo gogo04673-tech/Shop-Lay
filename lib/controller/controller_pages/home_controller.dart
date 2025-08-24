@@ -39,7 +39,7 @@ class HomePageControllerImp extends HomePageController {
 
   List categories = [];
   List items = [];
-  List itemsView = [];
+  List itemsTopSeller = [];
 
   @override
   void onInit() {
@@ -58,7 +58,7 @@ class HomePageControllerImp extends HomePageController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         categories.addAll(response['categories']);
-        itemsView.addAll(response['itemView']);
+        itemsTopSeller.addAll(response['items_top_seller']);
         items.addAll(response['items']);
 
         update();

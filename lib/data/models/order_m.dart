@@ -11,6 +11,8 @@ class OrderModel {
   int? ordersCouponDiscount;
   String? ordersDateTime;
   int? ordersStatus;
+  int? ordersRating;
+  String? ordersRatingCommit;
 
   OrderModel({
     this.ordersId,
@@ -25,6 +27,8 @@ class OrderModel {
     this.ordersCouponDiscount,
     this.ordersDateTime,
     this.ordersStatus,
+    this.ordersRating,
+    this.ordersRatingCommit,
   });
 
   OrderModel.fromJson(Map<String, dynamic> json) {
@@ -40,6 +44,8 @@ class OrderModel {
     ordersCouponDiscount = json['orders_coupon_discount'];
     ordersDateTime = json['orders_date_time'];
     ordersStatus = json['orders_status'];
+    ordersRating = json['orders_rating'];
+    ordersRatingCommit = json['orders_rating_commit'];
   }
 
   Map<String, dynamic> toJson() {
@@ -56,6 +62,8 @@ class OrderModel {
     data['orders_coupon_discount'] = ordersCouponDiscount;
     data['orders_date_time'] = ordersDateTime;
     data['orders_status'] = ordersStatus;
+    data['orders_rating'] = ordersRating;
+    data['orders_rating_commit'] = ordersRatingCommit;
     return data;
   }
 }

@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoplay/controller/controller_pages/home_screen_controller.dart';
 import 'package:shoplay/core/constant/approutes.dart';
 import 'package:shoplay/core/constant/colors.dart';
+import 'package:shoplay/core/functions/widget_const/dialog/custom_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +16,24 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeScreenControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => Scaffold(
-        body: controller.pagesList.elementAt(controller.currentPage),
+        body: PopScope(
+          canPop: false, // نمنع الخروج المباشر
+          onPopInvokedWithResult: (didPop, result) {
+            if (!didPop) {
+              customDialog(
+                "error",
+                "Are you want back?",
+                onTapCancel: () {
+                  Get.back(); // يغلق الـ dialog فقط
+                },
+                onTapOkay: () {
+                  exit(0); // يغلق التطبيق
+                },
+              );
+            }
+          },
+          child: controller.pagesList.elementAt(controller.currentPage),
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
           width: 55,

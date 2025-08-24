@@ -21,6 +21,7 @@ import 'package:shoplay/view/screen/pages/favorite_page.dart';
 import 'package:shoplay/view/screen/pages/item_details.dart';
 import 'package:shoplay/view/screen/pages/items_page.dart';
 import 'package:shoplay/view/screen/pages/notifications_page.dart';
+import 'package:shoplay/view/screen/settings/contact_us_page.dart';
 import 'package:shoplay/view/screen/settings/order_details_page.dart';
 import 'package:shoplay/view/screen/settings/orders_pending.dart';
 import 'package:shoplay/view/screen/settings/settings_page.dart';
@@ -100,4 +101,7 @@ List<GetPage<dynamic>>? routes = [
     name: AppRoute.ordersDetailsPage,
     page: () => const OrderDetailsPage(),
   ),
+
+  // * Contact Us Page
+  GetPage(name: AppRoute.contactUsPage, page: () => const ContactUsPage()),
 ];

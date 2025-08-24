@@ -19,6 +19,7 @@ class OrdersPendingPage extends StatelessWidget {
           statusRequest: controller.statusRequest,
           widget: Padding(
             padding: const EdgeInsets.all(15),
+
             child: Column(
               children: [
                 // * Pages All Pending Completed
@@ -27,22 +28,31 @@ class OrdersPendingPage extends StatelessWidget {
                 // Custom Grid View to order
                 controller.indexPage == 0
                     ? Expanded(
-                        child: CustomOrderView(
-                          controller: controller,
-                          list: controller.orders,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: CustomOrderView(
+                            controller: controller,
+                            list: controller.orders,
+                          ),
                         ),
                       )
                     : controller.indexPage == 1
                     ? Expanded(
-                        child: CustomOrderView(
-                          controller: controller,
-                          list: controller.ordersPending,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: CustomOrderView(
+                            controller: controller,
+                            list: controller.ordersPending,
+                          ),
                         ),
                       )
                     : Expanded(
-                        child: CustomOrderView(
-                          controller: controller,
-                          list: controller.ordersCompleted,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: CustomOrderView(
+                            controller: controller,
+                            list: controller.ordersCompleted,
+                          ),
                         ),
                       ),
               ],

@@ -51,6 +51,7 @@ class AppLinks {
   static const String linkAllPendingOrders = "$server/orders/pending.php";
   static const String linkDetailsOrders = "$server/orders/order_details.php";
   static const String linkDeleteOrders = "$server/orders/order_delete.php";
+  static const String linkRatingOrders = "$server/orders/rating.php";
 
   // *Coupon
   static const String linkCoupon = "$server/coupon/check_coupon.php";
@@ -63,4 +64,8 @@ class AppLinks {
   static const String linkDeleteAddress = "$server/address/delete.php";
   static const String linkViewAddress = "$server/address/view.php";
   static const String linkEditAddress = "$server/address/edit.php";
+
+  // * contact Us
+  static const String linkContactUsAdd = "$server/contact_us/add.php";
+  static const String linkContactUsView = "$server/contact_us/view.php";
 }

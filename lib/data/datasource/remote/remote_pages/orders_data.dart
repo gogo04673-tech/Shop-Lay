@@ -45,4 +45,14 @@ class OrdersData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  ordersRatingData(String orderId, String rating, String ratingCommit) async {
+    var response = await crud.postRequest(AppLinks.linkRatingOrders, {
+      "orderId": orderId,
+      "ordersRating": rating,
+      "ordersRatingCommit": ratingCommit,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
 }
